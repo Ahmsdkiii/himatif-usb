@@ -1,0 +1,162 @@
+'use client'
+
+import { Code2, Rocket, Users, Zap } from 'lucide-react'
+import { motion } from 'framer-motion'
+
+export default function HighlightsSection() {
+  const highlights = [
+    {
+      icon: Code2,
+      title: 'Tech Community',
+      description: '1000+ software engineers, developers, dan tech enthusiasts yang saling belajar dan berbagi knowledge secara konsisten.',
+      color: 'from-blue-500 to-cyan-500',
+      bgColor: 'bg-blue-500/10',
+      iconBg: 'bg-blue-500/10',
+      iconColor: 'text-blue-400',
+      borderColor: 'group-hover:border-blue-500/40',
+    },
+    {
+      icon: Rocket,
+      title: 'Innovation Lab',
+      description: 'Workshop, hackathon, dan project-based learning yang mengasah skill dan mendorong inovasi teknologi terkini.',
+      color: 'from-yellow-500 to-orange-500',
+      bgColor: 'bg-yellow-500/10',
+      iconBg: 'bg-yellow-500/10',
+      iconColor: 'text-yellow-400',
+      borderColor: 'group-hover:border-yellow-500/40',
+    },
+    {
+      icon: Users,
+      title: 'Industry Ready',
+      description: 'Mentorship dari praktisi industri dan kesempatan networking dengan tech leaders di berbagai bidang informatika.',
+      color: 'from-purple-500 to-pink-500',
+      bgColor: 'bg-purple-500/10',
+      iconBg: 'bg-purple-500/10',
+      iconColor: 'text-purple-400',
+      borderColor: 'group-hover:border-purple-500/40',
+    },
+    {
+      icon: Zap,
+      title: 'Technical Excellence',
+      description: 'Komitmen pada kualitas kode, best practices, dan continuous improvement dalam setiap project yang kami kerjakan.',
+      color: 'from-green-500 to-emerald-500',
+      bgColor: 'bg-green-500/10',
+      iconBg: 'bg-green-500/10',
+      iconColor: 'text-green-400',
+      borderColor: 'group-hover:border-green-500/40',
+    },
+  ]
+
+  const containerVariants = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  }
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 },
+  }
+
+  return (
+    <section className="relative py-24 bg-black overflow-hidden">
+      <div className="absolute inset-0">
+        <div className="absolute top-1/4 left-0 w-96 h-96 bg-green-500/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-green-400/5 rounded-full blur-3xl"></div>
+      </div>
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="mb-16 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="inline-flex items-center gap-2 px-4 py-2 bg-green-500/10 border border-green-500/20 rounded-full text-green-400 text-sm font-medium backdrop-blur-sm mb-6"
+          >
+            <Zap className="w-4 h-4" />
+            <span>Our Strengths</span>
+          </motion.div>
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="text-4xl md:text-5xl font-bold text-white mb-4"
+          >
+            Why Choose HIMATIF?
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="text-gray-400 text-lg max-w-2xl mx-auto"
+          >
+            Temukan komunitas yang peduli dengan pengembangan skill dan growth mu sebagai developer profesional
+          </motion.p>
+        </div>
+
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-100px' }}
+        >
+          {highlights.map((highlight, index) => {
+            const Icon = highlight.icon
+            return (
+              <motion.div
+                key={index}
+                variants={itemVariants}
+                whileHover={{ y: -8, transition: { duration: 0.3 } }}
+                className={`group relative bg-black/40 backdrop-blur-sm rounded-2xl p-8 border border-green-500/20 ${highlight.borderColor} transition-all duration-300 overflow-hidden`}
+              >
+                <div className={`absolute inset-0 bg-linear-to-br ${highlight.color} opacity-0 group-hover:opacity-5 transition-opacity duration-300`}></div>
+                
+                <div className="relative z-10">
+                  <div className={`inline-flex items-center justify-center w-14 h-14 ${highlight.iconBg} rounded-xl mb-6 group-hover:scale-110 transition-transform duration-300 border border-green-500/10`}>
+                    <Icon className={`${highlight.iconColor} transition-colors duration-300`} size={28} />
+                  </div>
+                  
+                  <h3 className="text-xl font-bold text-white mb-3 group-hover:text-green-400 transition-colors duration-300">
+                    {highlight.title}
+                  </h3>
+                  
+                  <p className="text-gray-400 text-sm leading-relaxed">
+                    {highlight.description}
+                  </p>
+                </div>
+
+                <div className={`absolute -bottom-12 -right-12 w-32 h-32 ${highlight.bgColor} rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
+                
+                <div className="absolute top-0 right-0 w-20 h-20 border border-green-500/5 rounded-bl-3xl"></div>
+              </motion.div>
+            )
+          })}
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.4 }}
+          className="mt-16 text-center"
+        >
+          <div className="inline-flex flex-col sm:flex-row items-center gap-4 p-6 bg-green-500/5 border border-green-500/20 rounded-2xl backdrop-blur-sm">
+            <div className="text-left">
+              <h3 className="text-xl font-bold text-white mb-1">Siap Bergabung dengan HIMATIF?</h3>
+              <p className="text-gray-400 text-sm">Mari bersama-sama membangun masa depan teknologi yang lebih baik</p>
+            </div>
+            <button className="shrink-0 px-6 py-3 bg-green-500 hover:bg-green-400 text-black font-semibold rounded-xl transition-all duration-300 shadow-lg shadow-green-500/30 hover:shadow-green-400/40 hover:scale-105 active:scale-95">
+              Get Started
+            </button>
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  )
+}
