@@ -166,17 +166,18 @@ export default function Navbar() {
         </div>
       </header>
 
-      {isMobileMenuOpen && (
-        <div className="fixed inset-0 z-30 md:hidden">
-          <div 
-            className="absolute inset-0 bg-black/70 backdrop-blur-sm"
-            onClick={closeMobileMenu}
-          />
-        </div>
-      )}
+      <div className={`fixed inset-0 z-30 md:hidden transition-all duration-300 ${
+        isMobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+      }`}>
+        <div 
+          className="absolute inset-0 bg-black/70 backdrop-blur-sm"
+          onClick={closeMobileMenu}
+        />
+      </div>
 
-      {isMobileMenuOpen && (
-        <div className="fixed right-0 top-0 h-full w-full max-w-sm bg-black border-l border-green-500/20 shadow-2xl shadow-green-500/20 z-40 md:hidden">
+      <div className={`fixed right-0 top-0 h-full w-full max-w-sm bg-black border-l border-green-500/20 shadow-2xl shadow-green-500/20 z-40 md:hidden transform transition-all duration-300 ease-out ${
+        isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
+      }`}>
           <div className="flex flex-col h-full">
             <div className="flex items-center justify-between p-5 border-b border-green-500/20">
               <Link href="/" className="group" onClick={closeMobileMenu}>
@@ -282,8 +283,7 @@ export default function Navbar() {
               </div>
             </nav>
           </div>
-        </div>
-      )}
+        </div>      
     </>
   )
 }
