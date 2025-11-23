@@ -170,108 +170,108 @@ export default function ProductDetail({ productId, onBack }: Props) {
       Accessories: { bg: 'bg-purple-500/10', text: 'text-purple-400', border: 'border-purple-500/20' },
       Digital: { bg: 'bg-pink-500/10', text: 'text-pink-400', border: 'border-pink-500/20' },
     }
-    return colors[category] || { bg: 'bg-gray-500/10', text: 'text-gray-400', border: 'border-gray-500/20' }
+    return colors[category] || { bg: 'bg-primary/10', text: 'text-primary', border: 'border-primary/20' }
   }
 
   const colors = getCategoryColor(product.category)
 
   return (
-    <section className="relative py-24 bg-black overflow-hidden">
+    <section className="relative py-24 bg-background overflow-hidden">
       <div className="absolute inset-0">
-        <div className="absolute top-1/4 left-0 w-96 h-96 bg-green-500/10 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-green-400/5 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/4 left-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
       </div>
 
-      <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.button
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           onClick={onBack}
-          className="flex items-center gap-2 text-green-400 hover:text-green-300 transition-colors mb-6 group"
+          className="flex items-center gap-2 text-primary hover:text-primary/80 transition-colors mb-8 group"
         >
           <ArrowLeft size={20} className="group-hover:-translate-x-1 transition-transform duration-300" />
-          <span>Back to Shop</span>
+          <span className="font-medium">Back to Shop</span>
         </motion.button>
 
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1 }}
-          className="flex items-center gap-2 text-sm text-gray-400 mb-8"
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.05 }}
+          className="flex items-center gap-2 text-sm text-muted-foreground mb-12"
         >
           <Home size={16} />
-          <ChevronRight size={16} className="text-gray-600" />
+          <ChevronRight size={16} className="text-muted-foreground/50" />
           <span>Shop</span>
-          <ChevronRight size={16} className="text-gray-600" />
-          <span className="text-green-400">{product.name}</span>
+          <ChevronRight size={16} className="text-muted-foreground/50" />
+          <span className="text-primary">{product.name}</span>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.2 }}
-            className="bg-black/40 backdrop-blur-sm border border-green-500/20 rounded-2xl h-96 flex items-center justify-center sticky top-24"
+            transition={{ delay: 0.1 }}
+            className="bg-card/40 backdrop-blur-sm border border-primary/20 rounded-2xl h-96 flex items-center justify-center sticky top-24"
           >
             <div className="text-center">
-              <div className="text-8xl font-bold text-green-400/20 mb-4">{product.name.charAt(0)}</div>
+              <div className="text-8xl font-bold text-primary/20 mb-4">{product.name.charAt(0)}</div>
               <span className={`inline-block text-xs font-semibold px-3 py-1.5 rounded-lg ${colors.bg} ${colors.text} border ${colors.border}`}>
                 {product.category}
               </span>
             </div>
           </motion.div>
 
-          <div className="flex flex-col">
+          <div className="flex flex-col justify-start">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
-              className="mb-6"
+              transition={{ delay: 0.15 }}
+              className="mb-8"
             >
-              <div className="flex items-center gap-3 mb-4">
+              <div className="flex items-center gap-3 mb-6">
                 <div className="flex items-center gap-1">
                   {[...Array(5)].map((_, i) => (
                     <Star
                       key={i}
-                      size={16}
-                      className={i < Math.floor(product.rating) ? 'fill-yellow-400 text-yellow-400' : 'text-gray-600'}
+                      size={18}
+                      className={i < Math.floor(product.rating) ? 'fill-yellow-400 text-yellow-400' : 'text-muted-foreground/30'}
                     />
                   ))}
                 </div>
-                <span className="text-sm text-gray-400">
+                <span className="text-sm text-muted-foreground">
                   {product.rating} ({product.reviews} reviews)
                 </span>
               </div>
 
-              <h1 className="text-3xl md:text-4xl font-bold text-white mb-4 leading-tight">{product.name}</h1>
-              <p className="text-lg text-gray-300 leading-relaxed">{product.description}</p>
+              <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6 leading-tight">{product.name}</h1>
+              <p className="text-lg text-muted-foreground leading-relaxed">{product.description}</p>
             </motion.div>
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 }}
-              className="mb-6"
+              transition={{ delay: 0.2 }}
+              className="mb-8 pb-8 border-b border-primary/20"
             >
-              <div className="text-4xl font-bold text-green-400 mb-2">${product.price}</div>
-              <p className="text-gray-400 text-sm">Free shipping pada orders over $50</p>
+              <div className="text-5xl font-bold text-primary mb-3">${product.price}</div>
+              <p className="text-muted-foreground text-sm">Free shipping pada orders over $50</p>
             </motion.div>
 
             {product.colors.length > 0 && (
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.5 }}
+                transition={{ delay: 0.25 }}
                 className="mb-8"
               >
-                <label className="block text-sm font-semibold text-white mb-3">
+                <label className="block text-sm font-semibold text-foreground mb-4">
                   Select Color:
                 </label>
-                <div className="flex gap-3">
+                <div className="flex gap-4">
                   {product.colors.map((color, index) => (
                     <button
                       key={index}
-                      className="w-10 h-10 rounded-full border-2 border-green-500/20 hover:border-green-400 transition-colors"
+                      className="w-12 h-12 rounded-full border-2 border-primary/20 hover:border-primary transition-all hover:scale-110 active:scale-95"
                       style={{
                         backgroundColor: color === 'Black' ? '#000' : color === 'White' ? '#fff' : color === 'Green' ? '#22c55e' : color === 'Gray' ? '#999' : color === 'Khaki' ? '#d4af37' : color === 'Silver' ? '#c0c0c0' : '#ccc',
                       }}
@@ -285,77 +285,75 @@ export default function ProductDetail({ productId, onBack }: Props) {
             <motion.button
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6 }}
-              className="px-6 py-4 bg-green-500 hover:bg-green-400 text-black font-semibold rounded-xl transition-all duration-300 shadow-lg shadow-green-500/30 hover:shadow-green-400/40 hover:scale-105 active:scale-95 mb-8 flex items-center justify-center gap-2 text-lg"
+              transition={{ delay: 0.3 }}
+              className="px-8 py-4 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold rounded-xl transition-all duration-300 shadow-lg shadow-primary/30 hover:shadow-primary/40 hover:scale-105 active:scale-95 flex items-center justify-center gap-3 text-lg mb-8"
             >
-              <ShoppingCart size={20} />
+              <ShoppingCart size={22} />
               Add to Cart
             </motion.button>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.7 }}
-              className="bg-black/40 backdrop-blur-sm border border-green-500/20 rounded-2xl p-6 mb-6"
-            >
-              <div className="flex items-center gap-2 mb-4">
-                <Info size={20} className="text-green-400" />
-                <h3 className="font-semibold text-white">Product Details</h3>
-              </div>
-              <ul className="space-y-3">
-                {product.details.map((detail: string, index: number) => (
-                  <li key={index} className="flex gap-3 text-sm">
-                    <div className="flex items-center justify-center w-5 h-5 rounded-full bg-green-500/10 border border-green-500/20 shrink-0 mt-0.5">
-                      <span className="text-green-400 text-xs">•</span>
-                    </div>
-                    <span className="text-gray-300">{detail}</span>
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.8 }}
-              className="border-t border-green-500/20 pt-6"
-            >
-              <h3 className="font-semibold text-white mb-4">Specifications</h3>
-              <div className="space-y-3">
-                {Object.entries(product.specs).map(([key, value]) => (
-                  <div key={key} className="flex justify-between">
-                    <span className="text-gray-400 text-sm">{key}:</span>
-                    <span className="font-medium text-white text-sm">{value}</span>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
           </div>
         </div>
 
-        <div className="border-t border-green-500/20 my-12"></div>
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.35 }}
+            className="lg:col-span-2 bg-card/40 backdrop-blur-sm border border-primary/20 rounded-2xl p-8"
+          >
+            <div className="flex items-center gap-3 mb-6">
+              <Info size={24} className="text-primary" />
+              <h3 className="font-bold text-foreground text-xl">Product Details</h3>
+            </div>
+            <ul className="space-y-4">
+              {product.details.map((detail: string, index: number) => (
+                <li key={index} className="flex gap-4 items-start">
+                  <div className="flex items-center justify-center w-6 h-6 rounded-full bg-primary/10 border border-primary/20 shrink-0 mt-1">
+                    <span className="text-primary text-sm font-bold">•</span>
+                  </div>
+                  <span className="text-foreground leading-relaxed pt-0.5">{detail}</span>
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4 }}
+            className="bg-card/40 backdrop-blur-sm border border-primary/20 rounded-2xl p-8"
+          >
+            <h3 className="font-bold text-foreground text-lg mb-6">Specifications</h3>
+            <div className="space-y-4">
+              {Object.entries(product.specs).map(([key, value]) => (
+                <div key={key} className="flex flex-col">
+                  <span className="text-muted-foreground text-sm font-medium mb-1">{key}</span>
+                  <span className="text-foreground font-semibold">{value}</span>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.9 }}
+          transition={{ delay: 0.45 }}
+          className="bg-card/40 backdrop-blur-sm border border-primary/20 rounded-2xl p-10 md:p-12 text-center"
         >
-          <h3 className="text-2xl font-bold text-white mb-6">Customer Reviews</h3>
-          <div className="bg-black/40 backdrop-blur-sm border border-green-500/20 rounded-2xl p-8 text-center">
-            <div className="flex items-center justify-center gap-2 mb-4">
-              {[...Array(5)].map((_, i) => (
-                <Star
-                  key={i}
-                  size={24}
-                  className={i < Math.floor(product.rating) ? 'fill-yellow-400 text-yellow-400' : 'text-gray-600'}
-                />
-              ))}
-            </div>
-            <p className="text-gray-300 leading-relaxed">
-              Product ini memiliki {product.reviews} customer reviews dengan average rating {product.rating} out of 5 stars.
-              Thank you untuk interest Anda dalam Student Association merchandise!
-            </p>
+          <div className="flex items-center justify-center gap-2 mb-6">
+            {[...Array(5)].map((_, i) => (
+              <Star
+                key={i}
+                size={28}
+                className={i < Math.floor(product.rating) ? 'fill-yellow-400 text-yellow-400' : 'text-muted-foreground/30'}
+              />
+            ))}
           </div>
+          <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-4">Customer Reviews</h3>
+          <p className="text-muted-foreground leading-relaxed max-w-2xl mx-auto text-lg">
+            Product ini memiliki <span className="text-primary font-semibold">{product.reviews} customer reviews</span> dengan average rating <span className="text-primary font-semibold">{product.rating}/5 stars</span>. Thank you untuk interest Anda dalam Student Association merchandise!
+          </p>
         </motion.div>
       </div>
     </section>

@@ -8,19 +8,19 @@ export default function ContactInfo() {
     {
       icon: Mail,
       title: 'Email',
-      content: 'contact@studentassoc.edu',
-      link: 'mailto:contact@studentassoc.edu',
+      content: 'himatif@usb.ac.id',
+      link: 'mailto:himatif@usb.ac.id',
     },
     {
       icon: Phone,
       title: 'Phone',
-      content: '+1 (555) 123-4567',
-      link: 'tel:+15551234567',
+      content: '+62 22 020 950',
+      link: 'tel:+6222022950',
     },
     {
       icon: MapPin,
       title: 'Office Location',
-      content: 'Student Center, Room 205\n123 University Ave',
+      content: 'Jl. Setiabudi No. 193\nBandung, Jawa Barat',
       link: null,
     },
     {
@@ -52,9 +52,9 @@ export default function ContactInfo() {
       transition={{ delay: 0.3 }}
       className="space-y-6"
     >
-      <div className="bg-black/40 backdrop-blur-sm border border-green-500/20 rounded-2xl p-8">
-        <h2 className="text-2xl font-bold text-white mb-2">Contact Information</h2>
-        <p className="text-gray-400 mb-8">Reach out melalui berbagai channel kami.</p>
+      <div className="bg-card/40 backdrop-blur-sm border border-primary/20 rounded-2xl p-8">
+        <h2 className="text-2xl font-bold text-foreground mb-2">Contact Information</h2>
+        <p className="text-muted-foreground mb-8">Reach out melalui berbagai channel kami.</p>
 
         <motion.div
           variants={containerVariants}
@@ -73,24 +73,24 @@ export default function ContactInfo() {
                 {detail.link ? (
                   <a
                     href={detail.link}
-                    className="flex items-start gap-4 p-4 rounded-xl border border-green-500/20 bg-black/20 hover:bg-green-500/5 hover:border-green-500/40 transition-all duration-300"
+                    className="flex items-start gap-4 p-4 rounded-xl border border-primary/20 bg-background/20 hover:bg-primary/5 hover:border-primary/40 transition-all duration-300"
                   >
-                    <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-green-500/10 border border-green-500/20 text-green-400 group-hover:bg-green-500/20 transition-all shrink-0">
+                    <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 text-primary group-hover:bg-primary/20 transition-all shrink-0">
                       <Icon size={24} />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-white mb-1">{detail.title}</h3>
-                      <p className="text-gray-300 text-sm whitespace-pre-line">{detail.content}</p>
+                      <h3 className="font-semibold text-foreground mb-1">{detail.title}</h3>
+                      <p className="text-muted-foreground text-sm whitespace-pre-line">{detail.content}</p>
                     </div>
                   </a>
                 ) : (
-                  <div className="flex items-start gap-4 p-4 rounded-xl border border-green-500/20 bg-black/20">
-                    <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-green-500/10 border border-green-500/20 text-green-400 shrink-0">
+                  <div className="flex items-start gap-4 p-4 rounded-xl border border-primary/20 bg-background/20">
+                    <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 text-primary shrink-0">
                       <Icon size={24} />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-white mb-1">{detail.title}</h3>
-                      <p className="text-gray-300 text-sm whitespace-pre-line">{detail.content}</p>
+                      <h3 className="font-semibold text-foreground mb-1">{detail.title}</h3>
+                      <p className="text-muted-foreground text-sm whitespace-pre-line">{detail.content}</p>
                     </div>
                   </div>
                 )}
@@ -104,17 +104,17 @@ export default function ContactInfo() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.5 }}
-        className="bg-black/40 backdrop-blur-sm border border-green-500/20 rounded-2xl p-8 text-center"
+        className="bg-card/40 backdrop-blur-sm border border-primary/20 rounded-2xl p-8 text-center"
       >
-        <h3 className="text-lg font-bold text-white mb-3">Follow Us</h3>
-        <p className="text-gray-400 mb-6">Stay connected pada social media kami untuk latest updates.</p>
+        <h3 className="text-lg font-bold text-foreground mb-3">Follow Us</h3>
+        <p className="text-muted-foreground mb-6">Stay connected pada social media kami untuk latest updates.</p>
         <div className="flex justify-center gap-4">
           {['Facebook', 'Twitter', 'Instagram', 'LinkedIn'].map((platform) => (
             <motion.button
               key={platform}
               whileHover={{ scale: 1.1, y: -2 }}
               whileTap={{ scale: 0.95 }}
-              className="w-12 h-12 rounded-xl bg-green-500/10 border border-green-500/20 text-green-400 hover:bg-green-500/20 hover:border-green-500/40 transition-all flex items-center justify-center font-semibold text-xs"
+              className="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 text-primary hover:bg-primary/20 hover:border-primary/40 transition-all flex items-center justify-center font-semibold text-xs"
             >
               {platform[0]}
             </motion.button>

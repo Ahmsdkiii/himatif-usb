@@ -62,10 +62,10 @@ export default function HighlightsSection() {
   }
 
   return (
-    <section className="relative py-24 bg-black overflow-hidden">
+    <section className="relative py-24 bg-background overflow-hidden">
       <div className="absolute inset-0">
-        <div className="absolute top-1/4 left-0 w-96 h-96 bg-green-500/10 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-green-400/5 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/4 left-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
       </div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -74,7 +74,7 @@ export default function HighlightsSection() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-4 py-2 bg-green-500/10 border border-green-500/20 rounded-full text-green-400 text-sm font-medium backdrop-blur-sm mb-6"
+            className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/20 rounded-full text-primary text-sm font-medium backdrop-blur-sm mb-6"
           >
             <Zap className="w-4 h-4" />
             <span>Our Strengths</span>
@@ -84,7 +84,7 @@ export default function HighlightsSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-4xl md:text-5xl font-bold text-white mb-4"
+            className="text-4xl md:text-5xl font-bold text-foreground mb-4"
           >
             Why Choose HIMATIF?
           </motion.h2>
@@ -93,7 +93,7 @@ export default function HighlightsSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-gray-400 text-lg max-w-2xl mx-auto"
+            className="text-muted-foreground text-lg max-w-2xl mx-auto"
           >
             Temukan komunitas yang peduli dengan pengembangan skill dan growth mu sebagai developer profesional
           </motion.p>
@@ -113,27 +113,27 @@ export default function HighlightsSection() {
                 key={index}
                 variants={itemVariants}
                 whileHover={{ y: -8, transition: { duration: 0.3 } }}
-                className={`group relative bg-black/40 backdrop-blur-sm rounded-2xl p-8 border border-green-500/20 ${highlight.borderColor} transition-all duration-300 overflow-hidden`}
+                className={`group relative bg-card/40 backdrop-blur-sm rounded-2xl p-8 border border-primary/20 ${highlight.borderColor} transition-all duration-300 overflow-hidden`}
               >
                 <div className={`absolute inset-0 bg-linear-to-br ${highlight.color} opacity-0 group-hover:opacity-5 transition-opacity duration-300`}></div>
                 
                 <div className="relative z-10">
-                  <div className={`inline-flex items-center justify-center w-14 h-14 ${highlight.iconBg} rounded-xl mb-6 group-hover:scale-110 transition-transform duration-300 border border-green-500/10`}>
+                  <div className={`inline-flex items-center justify-center w-14 h-14 ${highlight.iconBg} rounded-xl mb-6 group-hover:scale-110 transition-transform duration-300 border border-primary/10`}>
                     <Icon className={`${highlight.iconColor} transition-colors duration-300`} size={28} />
                   </div>
                   
-                  <h3 className="text-xl font-bold text-white mb-3 group-hover:text-green-400 transition-colors duration-300">
+                  <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors duration-300">
                     {highlight.title}
                   </h3>
                   
-                  <p className="text-gray-400 text-sm leading-relaxed">
+                  <p className="text-muted-foreground text-sm leading-relaxed">
                     {highlight.description}
                   </p>
                 </div>
 
                 <div className={`absolute -bottom-12 -right-12 w-32 h-32 ${highlight.bgColor} rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
                 
-                <div className="absolute top-0 right-0 w-20 h-20 border border-green-500/5 rounded-bl-3xl"></div>
+                <div className="absolute top-0 right-0 w-20 h-20 border border-primary/5 rounded-bl-3xl"></div>
               </motion.div>
             )
           })}
@@ -146,12 +146,12 @@ export default function HighlightsSection() {
           transition={{ delay: 0.4 }}
           className="mt-16 text-center"
         >
-          <div className="inline-flex flex-col sm:flex-row items-center gap-4 p-6 bg-green-500/5 border border-green-500/20 rounded-2xl backdrop-blur-sm">
+          <div className="inline-flex flex-col sm:flex-row items-center gap-4 p-6 bg-primary/5 border border-primary/20 rounded-2xl backdrop-blur-sm">
             <div className="text-left">
-              <h3 className="text-xl font-bold text-white mb-1">Siap Bergabung dengan HIMATIF?</h3>
-              <p className="text-gray-400 text-sm">Mari bersama-sama membangun masa depan teknologi yang lebih baik</p>
+              <h3 className="text-xl font-bold text-foreground mb-1">Siap Bergabung dengan HIMATIF?</h3>
+              <p className="text-muted-foreground text-sm">Mari bersama-sama membangun masa depan teknologi yang lebih baik</p>
             </div>
-            <button className="shrink-0 px-6 py-3 bg-green-500 hover:bg-green-400 text-black font-semibold rounded-xl transition-all duration-300 shadow-lg shadow-green-500/30 hover:shadow-green-400/40 hover:scale-105 active:scale-95">
+            <button className="shrink-0 px-6 py-3 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold rounded-xl transition-all duration-300 shadow-lg shadow-primary/30 hover:shadow-primary/40 hover:scale-105 active:scale-95">
               Get Started
             </button>
           </div>

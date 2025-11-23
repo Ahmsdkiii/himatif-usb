@@ -78,12 +78,12 @@ export default function NewsGrid({ onSelectArticle }: Props) {
   const getCategoryColor = (category: string) => {
     const colors: Record<string, { bg: string; text: string; border: string }> = {
       Achievement: { bg: 'bg-blue-500/10', text: 'text-blue-400', border: 'border-blue-500/20' },
-      Event: { bg: 'bg-green-500/10', text: 'text-green-400', border: 'border-green-500/20' },
+      Event: { bg: 'bg-primary/10', text: 'text-primary', border: 'border-primary/20' },
       Initiative: { bg: 'bg-purple-500/10', text: 'text-purple-400', border: 'border-purple-500/20' },
       Learning: { bg: 'bg-yellow-500/10', text: 'text-yellow-400', border: 'border-yellow-500/20' },
       Scholarship: { bg: 'bg-pink-500/10', text: 'text-pink-400', border: 'border-pink-500/20' },
     }
-    return colors[category] || { bg: 'bg-gray-500/10', text: 'text-gray-400', border: 'border-gray-500/20' }
+    return colors[category] || { bg: 'bg-primary/10', text: 'text-primary', border: 'border-primary/20' }
   }
 
   const containerVariants = {
@@ -101,10 +101,10 @@ export default function NewsGrid({ onSelectArticle }: Props) {
   }
 
   return (
-    <section className="relative py-24 bg-black overflow-hidden">
+    <section className="relative py-24 bg-background overflow-hidden">
       <div className="absolute inset-0">
-        <div className="absolute top-1/4 left-0 w-96 h-96 bg-green-500/10 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-green-400/5 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/4 left-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
       </div>
 
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -123,9 +123,9 @@ export default function NewsGrid({ onSelectArticle }: Props) {
                 variants={itemVariants}
                 whileHover={{ y: -8, transition: { duration: 0.3 } }}
                 onClick={() => onSelectArticle(article.id)}
-                className="group relative bg-black/40 backdrop-blur-sm border border-green-500/20 rounded-2xl overflow-hidden hover:border-green-500/40 transition-all duration-300 cursor-pointer flex flex-col"
+                className="group relative bg-card/40 backdrop-blur-sm border border-primary/20 rounded-2xl overflow-hidden hover:border-primary/40 transition-all duration-300 cursor-pointer flex flex-col"
               >
-                <div className="absolute inset-0 bg-linear-to-br from-green-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute inset-0 bg-linear-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 
                 <div className="relative z-10 p-6 flex flex-col h-full">
                   <div className="mb-4">
@@ -134,25 +134,25 @@ export default function NewsGrid({ onSelectArticle }: Props) {
                     </span>
                   </div>
 
-                  <h3 className="text-lg font-bold text-white mb-2 line-clamp-2 group-hover:text-green-400 transition-colors duration-300">
+                  <h3 className="text-lg font-bold text-foreground mb-2 line-clamp-2 group-hover:text-primary transition-colors duration-300">
                     {article.title}
                   </h3>
-                  <p className="text-gray-400 text-sm mb-4 leading-relaxed line-clamp-3 grow">
+                  <p className="text-muted-foreground text-sm mb-4 leading-relaxed line-clamp-3 grow">
                     {article.excerpt}
                   </p>
 
-                  <div className="flex items-center justify-between pt-4 border-t border-green-500/20">
-                    <div className="flex items-center gap-2 text-xs text-gray-400">
+                  <div className="flex items-center justify-between pt-4 border-t border-primary/20">
+                    <div className="flex items-center gap-2 text-xs text-muted-foreground">
                       <Calendar size={14} />
                       {article.date}
                     </div>
-                    <div className="text-green-400 group-hover:translate-x-1 transition-transform duration-300">
+                    <div className="text-primary group-hover:translate-x-1 transition-transform duration-300">
                       <ArrowRight size={18} />
                     </div>
                   </div>
                 </div>
 
-                <div className="absolute -bottom-12 -right-12 w-32 h-32 bg-green-500/10 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div className="absolute -bottom-12 -right-12 w-32 h-32 bg-primary/10 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               </motion.div>
             )
           })}

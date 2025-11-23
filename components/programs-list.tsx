@@ -116,10 +116,10 @@ export default function ProgramsList() {
   }
 
   return (
-    <section className="relative py-24 bg-black overflow-hidden">
+    <section className="relative py-24 bg-background overflow-hidden">
       <div className="absolute inset-0">
-        <div className="absolute top-1/4 left-0 w-96 h-96 bg-green-500/10 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-green-400/5 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/4 left-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
       </div>
 
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -129,7 +129,7 @@ export default function ProgramsList() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-3xl md:text-4xl font-bold text-white mb-2"
+              className="text-3xl md:text-4xl font-bold text-foreground mb-2"
             >
               Annual Programs
             </motion.h2>
@@ -138,7 +138,7 @@ export default function ProgramsList() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="text-gray-400"
+              className="text-muted-foreground"
             >
               Flagship events yang highlight the year dan bring our tech community together.
             </motion.p>
@@ -158,40 +158,40 @@ export default function ProgramsList() {
                   key={program.id}
                   variants={itemVariants}
                   whileHover={{ y: -8, transition: { duration: 0.3 } }}
-                  className="group relative bg-black/40 backdrop-blur-sm border border-green-500/20 rounded-2xl p-6 hover:border-green-500/40 transition-all duration-300 flex flex-col overflow-hidden"
+                  className="group relative bg-card/40 backdrop-blur-sm border border-primary/20 rounded-2xl p-6 hover:border-primary/40 transition-all duration-300 flex flex-col overflow-hidden"
                 >
-                  <div className="absolute inset-0 bg-linear-to-br from-green-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="absolute inset-0 bg-linear-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   
                   <div className="relative z-10">
                     <div className="flex items-center justify-between mb-4">
-                      <div className="p-3 bg-green-500/10 rounded-xl border border-green-500/20 group-hover:scale-110 transition-transform duration-300">
-                        <Icon className="text-green-400" size={28} />
+                      <div className="p-3 bg-primary/10 rounded-xl border border-primary/20 group-hover:scale-110 transition-transform duration-300">
+                        <Icon className="text-primary" size={28} />
                       </div>
                       {program.season && (
-                        <span className="bg-green-500/10 text-green-400 text-xs font-semibold px-3 py-1.5 rounded-lg border border-green-500/20">
+                        <span className="bg-primary/10 text-primary text-xs font-semibold px-3 py-1.5 rounded-lg border border-primary/20">
                           {program.season}
                         </span>
                       )}
                     </div>
 
-                    <h3 className="text-lg font-bold text-white mb-2 group-hover:text-green-400 transition-colors duration-300">{program.title}</h3>
-                    <p className="text-gray-400 text-sm mb-4 grow leading-relaxed">
+                    <h3 className="text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors duration-300">{program.title}</h3>
+                    <p className="text-muted-foreground text-sm mb-4 grow leading-relaxed">
                       {program.description}
                     </p>
 
                     <ul className="space-y-2">
                       {program.details.map((detail, index) => (
                         <li key={index} className="flex gap-2 text-xs">
-                          <div className="flex items-center justify-center w-4 h-4 rounded-full bg-green-500/10 border border-green-500/20 shrink-0 mt-0.5">
-                            <span className="text-green-400 text-xs">✓</span>
+                          <div className="flex items-center justify-center w-4 h-4 rounded-full bg-primary/10 border border-primary/20 shrink-0 mt-0.5">
+                            <span className="text-primary text-xs">✓</span>
                           </div>
-                          <span className="text-gray-400">{detail}</span>
+                          <span className="text-muted-foreground">{detail}</span>
                         </li>
                       ))}
                     </ul>
                   </div>
 
-                  <div className="absolute -bottom-12 -right-12 w-32 h-32 bg-green-500/10 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  <div className="absolute -bottom-12 -right-12 w-32 h-32 bg-primary/10 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 </motion.div>
               )
             })}
@@ -204,7 +204,7 @@ export default function ProgramsList() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-3xl md:text-4xl font-bold text-white mb-2"
+              className="text-3xl md:text-4xl font-bold text-foreground mb-2"
             >
               Routine Programs
             </motion.h2>
@@ -213,7 +213,7 @@ export default function ProgramsList() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="text-gray-400"
+              className="text-muted-foreground"
             >
               Regular initiatives yang support ongoing student development dan community building.
             </motion.p>
@@ -233,33 +233,33 @@ export default function ProgramsList() {
                   key={program.id}
                   variants={itemVariants}
                   whileHover={{ y: -8, transition: { duration: 0.3 } }}
-                  className="group relative bg-black/40 backdrop-blur-sm border border-green-500/20 rounded-2xl p-6 hover:border-green-500/40 transition-all duration-300 overflow-hidden"
+                  className="group relative bg-card/40 backdrop-blur-sm border border-primary/20 rounded-2xl p-6 hover:border-primary/40 transition-all duration-300 overflow-hidden"
                 >
-                  <div className="absolute inset-0 bg-linear-to-br from-green-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="absolute inset-0 bg-linear-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 
                   <div className="relative z-10 flex gap-4">
                     <div className="shrink-0">
-                      <div className="w-16 h-16 bg-green-500/10 rounded-xl flex items-center justify-center border border-green-500/20 group-hover:scale-110 transition-transform duration-300">
-                        <Icon className="text-green-400" size={32} />
+                      <div className="w-16 h-16 bg-primary/10 rounded-xl flex items-center justify-center border border-primary/20 group-hover:scale-110 transition-transform duration-300">
+                        <Icon className="text-primary" size={32} />
                       </div>
                     </div>
 
                     <div className="grow">
-                      <h3 className="text-lg font-bold text-white mb-1 group-hover:text-green-400 transition-colors duration-300">{program.title}</h3>
-                      <p className="text-gray-400 text-sm mb-3 leading-relaxed">{program.description}</p>
+                      <h3 className="text-lg font-bold text-foreground mb-1 group-hover:text-primary transition-colors duration-300">{program.title}</h3>
+                      <p className="text-muted-foreground text-sm mb-3 leading-relaxed">{program.description}</p>
 
                       <ul className="space-y-1">
                         {program.details.slice(0, 2).map((detail, index) => (
                           <li key={index} className="flex gap-2 text-xs">
-                            <span className="text-green-400">→</span>
-                            <span className="text-gray-400">{detail}</span>
+                            <span className="text-primary">→</span>
+                            <span className="text-muted-foreground">{detail}</span>
                           </li>
                         ))}
                       </ul>
                     </div>
                   </div>
 
-                  <div className="absolute -bottom-12 -right-12 w-32 h-32 bg-green-500/10 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  <div className="absolute -bottom-12 -right-12 w-32 h-32 bg-primary/10 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 </motion.div>
               )
             })}

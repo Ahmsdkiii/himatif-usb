@@ -46,10 +46,10 @@ export default function GalleryGrid({ onSelectImage }: Props) {
   }
 
   return (
-    <section className="relative py-24 bg-black overflow-hidden">
+    <section className="relative py-24 bg-background overflow-hidden">
       <div className="absolute inset-0">
-        <div className="absolute top-1/4 left-0 w-96 h-96 bg-green-500/10 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-green-400/5 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/4 left-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
       </div>
 
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -66,32 +66,32 @@ export default function GalleryGrid({ onSelectImage }: Props) {
               variants={itemVariants}
               whileHover={{ scale: 1.05, transition: { duration: 0.3 } }}
               onClick={() => onSelectImage(item.id)}
-              className="group relative bg-black/40 backdrop-blur-sm border border-green-500/20 rounded-2xl overflow-hidden aspect-square cursor-pointer hover:border-green-500/40 transition-all duration-300"
+              className="group relative bg-card/40 backdrop-blur-sm border border-primary/20 rounded-2xl overflow-hidden aspect-square cursor-pointer hover:border-primary/40 transition-all duration-300"
             >
-              <div className="absolute inset-0 bg-linear-to-br from-green-500/30 to-green-400/10 flex items-center justify-center">
-                <div className="text-8xl font-bold text-green-400/20">
+              <div className="absolute inset-0 bg-linear-to-br from-primary/30 to-primary/10 flex items-center justify-center">
+                <div className="text-8xl font-bold text-primary/20">
                   {String.fromCharCode(65 + (item.id % 26))}
                 </div>
               </div>
 
               {item.type === 'video' && (
                 <div className="absolute inset-0 flex items-center justify-center bg-black/40 group-hover:bg-black/50 transition-colors z-10">
-                  <div className="bg-green-500 text-black rounded-full p-4 group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-green-500/50">
+                  <div className="bg-primary text-primary-foreground rounded-full p-4 group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-primary/50">
                     <Play size={32} fill="currentColor" />
                   </div>
                 </div>
               )}
 
               <div className="absolute inset-0 bg-linear-to-t from-black via-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4 z-20">
-                <h3 className="text-white font-bold text-lg mb-1">{item.title}</h3>
-                <p className="text-green-400 text-sm mb-2 font-medium">{item.event}</p>
-                <div className="flex items-center gap-1 text-gray-400 text-xs">
-                  <Calendar size={12} />
+                <h3 className="text-foreground font-bold text-lg mb-1">{item.title}</h3>
+                <p className="text-primary text-sm mb-3 font-medium">{item.event}</p>
+                <div className="flex items-center gap-2 text-muted-foreground text-xs">
+                  <Calendar size={14} />
                   <span>{item.date}</span>
                 </div>
               </div>
 
-              <div className="absolute -bottom-12 -right-12 w-32 h-32 bg-green-500/10 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="absolute -bottom-12 -right-12 w-32 h-32 bg-primary/10 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             </motion.div>
           ))}
         </motion.div>

@@ -39,7 +39,7 @@ export default function Lightbox({ imageId, onClose, onNext, onPrev }: Props) {
       >
         <button
           onClick={onClose}
-          className="absolute top-6 right-6 text-white hover:text-green-400 transition-colors p-2 rounded-lg hover:bg-white/10 z-50"
+          className="absolute top-6 right-6 text-foreground hover:text-primary transition-colors p-2 rounded-lg hover:bg-primary/10 z-50"
           aria-label="Close"
         >
           <X size={32} />
@@ -53,32 +53,32 @@ export default function Lightbox({ imageId, onClose, onNext, onPrev }: Props) {
           className="w-full max-w-5xl"
           onClick={(e) => e.stopPropagation()}
         >
-          <div className="bg-black/60 backdrop-blur-sm border border-green-500/20 rounded-2xl p-6 shadow-2xl">
-            <div className="bg-linear-to-br from-green-500/20 to-green-400/10 aspect-video rounded-xl flex items-center justify-center mb-6 relative overflow-hidden">
-              <div className="text-9xl font-bold text-green-400/30">
+          <div className="bg-black/60 backdrop-blur-sm border border-primary/20 rounded-2xl p-6 shadow-2xl">
+            <div className="bg-linear-to-br from-primary/20 to-primary/10 aspect-video rounded-xl flex items-center justify-center mb-8 relative overflow-hidden group">
+              <div className="text-9xl font-bold text-primary/30">
                 {String.fromCharCode(65 + (imageId % 26))}
               </div>
               <div className="absolute inset-0 bg-linear-to-t from-black/50 to-transparent"></div>
             </div>
 
-            <div className="text-center mb-6">
-              <h2 className="text-2xl md:text-3xl font-bold text-white mb-2">{item.title}</h2>
-              <p className="text-green-400 font-medium">{item.event}</p>
+            <div className="text-center mb-10">
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-3">{item.title}</h2>
+              <p className="text-primary font-semibold text-lg">{item.event}</p>
             </div>
 
-            <div className="flex items-center justify-between px-4">
+            <div className="flex items-center justify-between px-4 mb-8">
               <motion.button
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
                 onClick={onPrev}
-                className="text-white hover:text-green-400 transition-colors p-3 hover:bg-white/10 rounded-xl"
+                className="text-foreground hover:text-primary transition-colors p-3 hover:bg-primary/10 rounded-xl"
                 aria-label="Previous"
               >
-                <ChevronLeft size={32} />
+                <ChevronLeft size={36} />
               </motion.button>
 
-              <div className="text-white text-center">
-                <p className="text-sm text-gray-400">
+              <div className="text-center">
+                <p className="text-muted-foreground text-sm">
                   {imageId + 1} / {galleryItems.length}
                 </p>
               </div>
@@ -87,22 +87,22 @@ export default function Lightbox({ imageId, onClose, onNext, onPrev }: Props) {
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
                 onClick={onNext}
-                className="text-white hover:text-green-400 transition-colors p-3 hover:bg-white/10 rounded-xl"
+                className="text-foreground hover:text-primary transition-colors p-3 hover:bg-primary/10 rounded-xl"
                 aria-label="Next"
               >
-                <ChevronRight size={32} />
+                <ChevronRight size={36} />
               </motion.button>
             </div>
           </div>
 
-          <div className="mt-6 text-center text-gray-400 text-xs">
+          <div className="mt-8 text-center text-muted-foreground text-sm">
             <p>Press ESC atau click X untuk close. Use arrow keys untuk navigate.</p>
           </div>
         </motion.div>
 
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-green-500/5 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-green-400/5 rounded-full blur-3xl"></div>
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
         </div>
       </motion.div>
     </AnimatePresence>

@@ -56,8 +56,8 @@ export default function AnnouncementsSection() {
   ]
 
   return (
-    <section className="relative py-24 bg-black overflow-hidden">
-      <div className="absolute inset-0 bg-linear-to-b from-transparent via-green-500/5 to-transparent"></div>
+    <section className="relative py-24 bg-background overflow-hidden">
+      <div className="absolute inset-0 bg-linear-to-b from-transparent via-primary/5 to-transparent"></div>
       
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-16 text-center">
@@ -65,7 +65,7 @@ export default function AnnouncementsSection() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-4 py-2 bg-green-500/10 border border-green-500/20 rounded-full text-green-400 text-sm font-medium backdrop-blur-sm mb-6"
+            className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/20 rounded-full text-primary text-sm font-medium backdrop-blur-sm mb-6"
           >
             <Megaphone className="w-4 h-4" />
             <span>Latest Updates</span>
@@ -75,7 +75,7 @@ export default function AnnouncementsSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-4xl md:text-5xl font-bold text-white mb-4"
+            className="text-4xl md:text-5xl font-bold text-foreground mb-4"
           >
             Announcements & Events
           </motion.h2>
@@ -84,7 +84,7 @@ export default function AnnouncementsSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-gray-400 text-lg max-w-2xl mx-auto"
+            className="text-muted-foreground text-lg max-w-2xl mx-auto"
           >
             Stay updated dengan event, workshop, dan opportunities terbaru dari HIMATIF USB YPKP
           </motion.p>
@@ -102,7 +102,7 @@ export default function AnnouncementsSection() {
               key={announcement.id}
               variants={staggerItem}
               whileHover={{ y: -8, transition: { duration: 0.3 } }}
-              className="group relative bg-black/40 backdrop-blur-sm border border-green-500/20 rounded-2xl p-6 hover:border-green-500/40 transition-all duration-300 cursor-pointer overflow-hidden"
+              className="group relative bg-card/40 backdrop-blur-sm border border-primary/20 rounded-2xl p-6 hover:border-primary/40 transition-all duration-300 cursor-pointer overflow-hidden"
             >
               <div className={`absolute inset-0 bg-linear-to-br ${announcement.color} opacity-0 group-hover:opacity-5 transition-opacity duration-300`}></div>
               
@@ -111,27 +111,27 @@ export default function AnnouncementsSection() {
                   <span className={`${announcement.bgColor} ${announcement.textColor} text-xs font-semibold px-3 py-1.5 rounded-lg border ${announcement.borderColor}`}>
                     {announcement.category}
                   </span>
-                  <div className="flex items-center gap-1.5 text-gray-400 text-xs">
+                  <div className="flex items-center gap-1.5 text-muted-foreground text-xs">
                     <Calendar className="w-3.5 h-3.5" />
                     <span>{announcement.date}</span>
                   </div>
                 </div>
                 
-                <h3 className="text-xl font-bold text-white mb-3 group-hover:text-green-400 transition-colors duration-300">
+                <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors duration-300">
                   {announcement.title}
                 </h3>
                 
-                <p className="text-gray-400 text-sm leading-relaxed mb-4">
+                <p className="text-muted-foreground text-sm leading-relaxed mb-4">
                   {announcement.description}
                 </p>
                 
-                <div className="flex items-center gap-2 text-green-400 text-sm font-medium">
+                <div className="flex items-center gap-2 text-primary text-sm font-medium">
                   <span>Read more</span>
                   <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-2" />
                 </div>
               </div>
 
-              <div className="absolute top-0 right-0 w-32 h-32 bg-green-500/5 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             </motion.div>
           ))}
         </motion.div>
@@ -143,7 +143,7 @@ export default function AnnouncementsSection() {
           className="mt-12 text-center"
         >
           <Link href="/news">
-            <button className="group inline-flex items-center gap-2 px-6 py-3 bg-green-500/10 border border-green-500/20 hover:border-green-500/40 text-green-400 font-medium rounded-xl transition-all duration-300 hover:bg-green-500/20">
+            <button className="group inline-flex items-center gap-2 px-6 py-3 bg-primary/10 border border-primary/20 hover:border-primary/40 text-primary font-medium rounded-xl transition-all duration-300 hover:bg-primary/20">
               View All Events & News
               <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
             </button>
