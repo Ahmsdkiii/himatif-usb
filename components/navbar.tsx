@@ -82,10 +82,10 @@ export default function Navbar() {
           : 'bg-background shadow-lg shadow-primary/10'
       }`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16 md:h-20">
+          <div className="flex items-center justify-between h-16 sm:h-18 lg:h-20">
             
-            <Link href="/" className="shrink-0 group flex items-center gap-2 md:gap-3" onClick={closeMobileMenu}>              
-              <div className="relative w-10 h-10 lg:w-12 lg:h-12 bg-primary rounded-lg md:rounded-xl p-1.5 md:p-2 shadow-md md:shadow-lg shadow-primary/20 md:shadow-primary/25">
+            <Link href="/" className="shrink-0 group flex items-center gap-2.5 lg:gap-3" onClick={closeMobileMenu}>
+              <div className="relative w-10 h-10 sm:w-11 sm:h-11 lg:w-12 lg:h-12 bg-primary rounded-lg lg:rounded-xl p-2 shadow-md lg:shadow-lg shadow-primary/20 lg:shadow-primary/25">
                 <Image
                   src="/assets/img/Himatif-White.png"
                   alt="HIMATIF USB Logo"
@@ -95,25 +95,24 @@ export default function Navbar() {
                 />
               </div>
               
-              
               <div className="relative">
-                <div className="font-bold text-xl lg:text-2xl text-primary tracking-tight transition-all duration-300 group-hover:text-primary/80">
+                <div className="font-bold text-lg sm:text-xl lg:text-2xl text-primary tracking-tight transition-all duration-300 group-hover:text-primary/80">
                   HIMATIF USB 
                 </div>
-                <div className="absolute -bottom-1 left-0 w-0 h-0.5 bg-linear-to-r from-primary to-transparent group-hover:w-full transition-all duration-300"></div>
+                <div className="absolute -bottom-0.5 left-0 w-0 h-0.5 bg-linear-to-r from-primary to-transparent group-hover:w-full transition-all duration-300"></div>
               </div>
             </Link>
 
-            <nav className="hidden md:flex items-center space-x-1">
+            <nav className="hidden lg:flex items-center space-x-1">
               <Link
                 href="/"
-                className="px-4 py-2 text-sm font-medium text-foreground hover:text-primary transition-colors duration-200 rounded-md hover:bg-primary/5"
+                className="px-3 xl:px-4 py-2 text-sm font-medium text-foreground hover:text-primary transition-colors duration-200 rounded-md hover:bg-primary/5"
               >
                 Home
               </Link>
               
               <div className="relative group">
-                <button className="flex items-center gap-1 px-4 py-2 text-sm font-medium text-foreground hover:text-primary transition-colors duration-200 rounded-md hover:bg-primary/5">
+                <button className="flex items-center gap-1 px-3 xl:px-4 py-2 text-sm font-medium text-foreground hover:text-primary transition-colors duration-200 rounded-md hover:bg-primary/5">
                   {menuStructure.about.label}
                   <ChevronDown className="w-4 h-4 transition-transform duration-200 group-hover:rotate-180" />
                 </button>
@@ -134,7 +133,7 @@ export default function Navbar() {
               </div>
 
               <div className="relative group">
-                <button className="flex items-center gap-1 px-4 py-2 text-sm font-medium text-foreground hover:text-primary transition-colors duration-200 rounded-md hover:bg-primary/5">
+                <button className="flex items-center gap-1 px-3 xl:px-4 py-2 text-sm font-medium text-foreground hover:text-primary transition-colors duration-200 rounded-md hover:bg-primary/5">
                   {menuStructure.activities.label}
                   <ChevronDown className="w-4 h-4 transition-transform duration-200 group-hover:rotate-180" />
                 </button>
@@ -156,7 +155,7 @@ export default function Navbar() {
 
               <Link
                 href="/gallery"
-                className="px-4 py-2 text-sm font-medium text-foreground hover:text-primary transition-colors duration-200 rounded-md hover:bg-primary/5"
+                className="px-3 xl:px-4 py-2 text-sm font-medium text-foreground hover:text-primary transition-colors duration-200 rounded-md hover:bg-primary/5"
               >
                 Gallery
               </Link>
@@ -167,7 +166,7 @@ export default function Navbar() {
 
               <Link
                 href="/contact"
-                className="ml-2 px-5 py-2.5 text-sm font-medium text-primary-foreground bg-primary hover:bg-primary/90 rounded-lg transition-all duration-200 shadow-lg shadow-primary/25 hover:shadow-primary/35 hover:scale-105 active:scale-95"
+                className="ml-2 px-4 xl:px-5 py-2 xl:py-2.5 text-sm font-medium text-primary-foreground bg-primary hover:bg-primary/90 rounded-lg transition-all duration-200 shadow-lg shadow-primary/25 hover:shadow-primary/35 hover:scale-105 active:scale-95"
               >
                 Contact
               </Link>
@@ -175,18 +174,17 @@ export default function Navbar() {
 
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden p-2 rounded-lg text-foreground hover:bg-primary/10 hover:text-primary transition-all duration-200 active:scale-95"
+              className="lg:hidden p-2.5 rounded-lg text-foreground hover:bg-primary/10 hover:text-primary transition-all duration-200 active:scale-95"
               aria-label="Toggle menu"
               aria-expanded={isMobileMenuOpen}
             >
-              {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+              {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
           </div>
         </div>
       </header>
 
-      {/* Mobile Menu */}
-      <div className={`fixed inset-0 z-30 md:hidden transition-all duration-300 ${
+      <div className={`fixed inset-0 z-30 lg:hidden transition-all duration-300 ${
         isMobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
       }`}>
         <div 
@@ -195,130 +193,123 @@ export default function Navbar() {
         />
       </div>
 
-      <div className={`fixed right-0 top-0 h-full w-[75%] max-w-sm bg-background/95 backdrop-blur-xl border-l border-primary/20 shadow-2xl shadow-primary/20 z-40 md:hidden transform transition-all duration-300 ease-out ${
-        isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
+      <div className={`fixed left-0 top-0 h-full w-[320px] sm:w-[360px] bg-background/95 backdrop-blur-xl border-r border-primary/20 shadow-2xl shadow-primary/20 z-40 lg:hidden transform transition-all duration-300 ease-out ${
+        isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full'
       }`}>
-          <div className="flex flex-col h-full">
-            <div className="flex items-center justify-between p-4 border-b border-primary/20">
-              <Link href="/" className="group flex items-center gap-2" onClick={closeMobileMenu}>
-                <div className="relative w-8 h-8 bg-primary rounded-lg p-1.5 shadow-md shadow-primary/20">
-                  <Image
-                    src="/assets/img/Himatif-White.png"
-                    alt="HIMATIF USB Logo"
-                    fill
-                    className="object-contain drop-shadow-sm"
-                  />
-                </div>
-                <div className="relative">
-                  <div className="font-bold text-lg text-primary tracking-tight transition-all duration-300 group-hover:text-primary/80">
-                    HIMATIF USB
-                  </div>
-                  <div className="absolute -bottom-1 left-0 w-0 h-0.5 bg-linear-to-r from-primary to-transparent group-hover:w-full transition-all duration-300"></div>
-                </div>
-              </Link>
-              <button
-                onClick={closeMobileMenu}
-                className="p-2 rounded-lg text-foreground hover:bg-primary/10 hover:text-primary transition-all duration-200 active:scale-95"
-                aria-label="Close menu"
-              >
-                <X className="w-4 h-4" />
-              </button>
-            </div>
-
-            <nav className="flex-1 overflow-y-auto py-4">
-              <div className="space-y-1 px-3">
-                <Link
-                  href="/"
-                  className="block px-4 py-3 text-base font-medium text-foreground hover:bg-primary/10 hover:text-primary rounded-lg transition-all duration-200"
-                  onClick={closeMobileMenu}
-                >
-                  Home
-                </Link>
-
-                <div className="space-y-1">
-                  <button
-                    onClick={() => setIsAboutOpen(!isAboutOpen)}
-                    className="flex items-center justify-between w-full px-4 py-3 text-base font-medium text-foreground hover:bg-primary/10 hover:text-primary rounded-lg transition-all duration-200"
-                  >
-                    <span>{menuStructure.about.label}</span>
-                    <ChevronDown 
-                      className={`w-4 h-4 transition-transform duration-200 ${isAboutOpen ? 'rotate-180' : ''}`} 
-                    />
-                  </button>
-                  <div className={`overflow-hidden transition-all duration-300 ${
-                    isAboutOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
-                  }`}>
-                    <div className="space-y-1 pt-1">
-                      {menuStructure.about.items.map((item) => (
-                        <Link
-                          key={item.href}
-                          href={item.href}
-                          className="block px-6 py-3 text-sm text-muted-foreground hover:bg-primary/10 hover:text-primary rounded-lg transition-all duration-200 ml-2"
-                          onClick={closeMobileMenu}
-                        >
-                          <div className="font-medium">{item.label}</div>
-                          <div className="text-xs text-muted-foreground mt-0.5">{item.description}</div>
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-
-                <div className="space-y-1">
-                  <button
-                    onClick={() => setIsActivitiesOpen(!isActivitiesOpen)}
-                    className="flex items-center justify-between w-full px-4 py-3 text-base font-medium text-foreground hover:bg-primary/10 hover:text-primary rounded-lg transition-all duration-200"
-                  >
-                    <span>{menuStructure.activities.label}</span>
-                    <ChevronDown 
-                      className={`w-4 h-4 transition-transform duration-200 ${isActivitiesOpen ? 'rotate-180' : ''}`} 
-                    />
-                  </button>
-                  <div className={`overflow-hidden transition-all duration-300 ${
-                    isActivitiesOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
-                  }`}>
-                    <div className="space-y-1 pt-1">
-                      {menuStructure.activities.items.map((item) => (
-                        <Link
-                          key={item.href}
-                          href={item.href}
-                          className="block px-6 py-3 text-sm text-muted-foreground hover:bg-primary/10 hover:text-primary rounded-lg transition-all duration-200 ml-2"
-                          onClick={closeMobileMenu}
-                        >
-                          <div className="font-medium">{item.label}</div>
-                          <div className="text-xs text-muted-foreground mt-0.5">{item.description}</div>
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-
-                <Link
-                  href="/gallery"
-                  className="block px-4 py-3 text-base font-medium text-foreground hover:bg-primary/10 hover:text-primary rounded-lg transition-all duration-200"
-                  onClick={closeMobileMenu}
-                >
-                  Gallery
-                </Link>
-
-                <div className="px-4 py-3">
-                  <div className="flex items-center justify-between">
-                    <span className="text-base font-medium text-foreground">Theme</span>
-                    <ThemeToggle />
-                  </div>
-                </div>
-
-                <Link
-                  href="/contact"
-                  className="block mt-4 px-6 py-3.5 text-base font-medium text-center text-primary-foreground bg-primary hover:bg-primary/90 rounded-lg transition-all duration-200 shadow-lg shadow-primary/30 hover:shadow-primary/40 active:scale-95"
-                  onClick={closeMobileMenu}
-                >
-                  Contact
-                </Link>
+        <div className="flex flex-col h-full">
+          <div className="flex items-center p-4 sm:p-5 border-b border-primary/20">
+            <Link href="/" className="group flex items-center gap-2.5" onClick={closeMobileMenu}>
+              <div className="relative w-10 h-10 bg-primary rounded-lg p-2 shadow-md shadow-primary/20">
+                <Image
+                  src="/assets/img/Himatif-White.png"
+                  alt="HIMATIF USB Logo"
+                  fill
+                  className="object-contain drop-shadow-sm"
+                />
               </div>
-            </nav>
+              <div className="relative">
+                <div className="font-bold text-lg sm:text-xl text-primary tracking-tight transition-all duration-300 group-hover:text-primary/80">
+                  HIMATIF USB
+                </div>
+                <div className="absolute -bottom-0.5 left-0 w-0 h-0.5 bg-linear-to-r from-primary to-transparent group-hover:w-full transition-all duration-300"></div>
+              </div>
+            </Link>
           </div>
-        </div>      
+
+          <nav className="flex-1 overflow-y-auto py-4">
+            <div className="space-y-1 px-3">
+              <Link
+                href="/"
+                className="block px-4 py-3 text-base font-medium text-foreground hover:bg-primary/10 hover:text-primary rounded-lg transition-all duration-200"
+                onClick={closeMobileMenu}
+              >
+                Home
+              </Link>
+
+              <div className="space-y-1">
+                <button
+                  onClick={() => setIsAboutOpen(!isAboutOpen)}
+                  className="flex items-center justify-between w-full px-4 py-3 text-base font-medium text-foreground hover:bg-primary/10 hover:text-primary rounded-lg transition-all duration-200"
+                >
+                  <span>{menuStructure.about.label}</span>
+                  <ChevronDown 
+                    className={`w-5 h-5 transition-transform duration-200 ${isAboutOpen ? 'rotate-180' : ''}`} 
+                  />
+                </button>
+                <div className={`overflow-hidden transition-all duration-300 ${
+                  isAboutOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+                }`}>
+                  <div className="space-y-1 pt-1">
+                    {menuStructure.about.items.map((item) => (
+                      <Link
+                        key={item.href}
+                        href={item.href}
+                        className="block px-6 py-3 text-sm text-muted-foreground hover:bg-primary/10 hover:text-primary rounded-lg transition-all duration-200 ml-2"
+                        onClick={closeMobileMenu}
+                      >
+                        <div className="font-medium">{item.label}</div>
+                        <div className="text-xs text-muted-foreground mt-0.5">{item.description}</div>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              <div className="space-y-1">
+                <button
+                  onClick={() => setIsActivitiesOpen(!isActivitiesOpen)}
+                  className="flex items-center justify-between w-full px-4 py-3 text-base font-medium text-foreground hover:bg-primary/10 hover:text-primary rounded-lg transition-all duration-200"
+                >
+                  <span>{menuStructure.activities.label}</span>
+                  <ChevronDown 
+                    className={`w-5 h-5 transition-transform duration-200 ${isActivitiesOpen ? 'rotate-180' : ''}`} 
+                  />
+                </button>
+                <div className={`overflow-hidden transition-all duration-300 ${
+                  isActivitiesOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+                }`}>
+                  <div className="space-y-1 pt-1">
+                    {menuStructure.activities.items.map((item) => (
+                      <Link
+                        key={item.href}
+                        href={item.href}
+                        className="block px-6 py-3 text-sm text-muted-foreground hover:bg-primary/10 hover:text-primary rounded-lg transition-all duration-200 ml-2"
+                        onClick={closeMobileMenu}
+                      >
+                        <div className="font-medium">{item.label}</div>
+                        <div className="text-xs text-muted-foreground mt-0.5">{item.description}</div>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              <Link
+                href="/gallery"
+                className="block px-4 py-3 text-base font-medium text-foreground hover:bg-primary/10 hover:text-primary rounded-lg transition-all duration-200"
+                onClick={closeMobileMenu}
+              >
+                Gallery
+              </Link>
+
+              <div className="px-4 py-3">
+                <div className="flex items-center justify-between">
+                  <span className="text-base font-medium text-foreground">Theme</span>
+                  <ThemeToggle />
+                </div>
+              </div>
+
+              <Link
+                href="/contact"
+                className="block mt-4 mx-1 px-6 py-3.5 text-base font-medium text-center text-primary-foreground bg-primary hover:bg-primary/90 rounded-lg transition-all duration-200 shadow-lg shadow-primary/30 hover:shadow-primary/40 active:scale-95"
+                onClick={closeMobileMenu}
+              >
+                Contact
+              </Link>
+            </div>
+          </nav>
+        </div>
+      </div>      
     </>
   )
 }

@@ -2,325 +2,190 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
-import { useState, useEffect } from 'react'
-import { Menu, X, ChevronDown } from 'lucide-react'
-import { ThemeToggle } from './theme-toggle'
+import { Mail, Phone, MapPin, Linkedin, Instagram, Facebook, Github, ChevronRight, ExternalLink } from 'lucide-react'
 
-interface MenuItem {
-  href: string
-  label: string
-  description: string
-}
+export default function Footer() {
+  const currentYear = 2025
 
-interface MenuSection {
-  label: string
-  items: MenuItem[]
-}
+  const quickLinks = [
+    { href: '/', label: 'Home' },
+    { href: '/about', label: 'About Us' },
+    { href: '/cabinet', label: 'Cabinet' },
+    { href: '/programs', label: 'Programs' },
+  ]
 
-interface MenuStructure {
-  about: MenuSection
-  activities: MenuSection
-}
+  const resources = [
+    { href: '/news', label: 'News & Events' },
+    { href: '/gallery', label: 'Gallery' },
+    { href: '/workshops', label: 'Workshops' },
+    { href: '/divisions', label: 'Divisions' },
+  ]
 
-export default function Navbar() {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  const [isAboutOpen, setIsAboutOpen] = useState(false)
-  const [isActivitiesOpen, setIsActivitiesOpen] = useState(false)
-  const [isScrolled, setIsScrolled] = useState(false)
-
-  const menuStructure: MenuStructure = {
-    about: {
-      label: 'About',
-      items: [
-        { href: '/about', label: 'About Us', description: 'Learn about our organization' },
-        { href: '/cabinet', label: 'Cabinet', description: 'Meet our leadership team' },
-        { href: '/divisions', label: 'Divisions', description: 'Our organizational structure' },
-      ],
-    },
-    activities: {
-      label: 'Activities',
-      items: [
-        { href: '/programs', label: 'Programs', description: 'Our programs and initiatives' },
-        { href: '/news', label: 'News', description: 'Latest updates and announcements' },
-        { href: '/products', label: 'Products', description: 'Our products and services' },
-      ],
-    },
-  }
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10)
-    }
-
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
-
-  useEffect(() => {
-    if (isMobileMenuOpen) {
-      document.body.style.overflow = 'hidden'
-    } else {
-      document.body.style.overflow = 'unset'
-    }
-
-    return () => {
-      document.body.style.overflow = 'unset'
-    }
-  }, [isMobileMenuOpen])
-
-  const closeMobileMenu = () => {
-    setIsMobileMenuOpen(false)
-    setIsAboutOpen(false)
-    setIsActivitiesOpen(false)
-  }
+  const socialLinks = [
+    { href: '#', icon: Instagram, label: 'Instagram', color: 'hover:text-pink-400' },
+    { href: '#', icon: Linkedin, label: 'LinkedIn', color: 'hover:text-blue-400' },
+    { href: '#', icon: Github, label: 'GitHub', color: 'hover:text-foreground' },
+    { href: '#', icon: Facebook, label: 'Facebook', color: 'hover:text-blue-500' },
+  ]
 
   return (
-    <>
-      <header className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
-        isScrolled 
-          ? 'bg-background/95 backdrop-blur-md shadow-lg shadow-primary/20' 
-          : 'bg-background shadow-lg shadow-primary/10'
-      }`}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16 md:h-20">
-            
-            <Link href="/" className="shrink-0 group flex items-center gap-2 md:gap-3" onClick={closeMobileMenu}>
-              {/* Logo Container - Responsive Size */}
-              <div className="relative w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 bg-primary rounded-lg md:rounded-xl p-1.5 md:p-2 shadow-md md:shadow-lg shadow-primary/20 md:shadow-primary/25">
-                <Image
-                  src="/assets/img/Himatif-White.png"
-                  alt="HIMATIF USB Logo"
-                  fill
-                  className="object-contain drop-shadow-sm"
-                  priority
-                />
-              </div>
-              
-              {/* Text - Responsive Size */}
-              <div className="relative">
-                <div className="font-bold text-lg md:text-xl lg:text-2xl text-primary tracking-tight transition-all duration-300 group-hover:text-primary/80">
-                  HIMATIF USB 
-                </div>
-                <div className="absolute -bottom-1 left-0 w-0 h-0.5 bg-linear-to-r from-primary to-transparent group-hover:w-full transition-all duration-300"></div>
-              </div>
-            </Link>
-
-            <nav className="hidden md:flex items-center space-x-1">
-              <Link
-                href="/"
-                className="px-4 py-2 text-sm font-medium text-foreground hover:text-primary transition-colors duration-200 rounded-md hover:bg-primary/5"
-              >
-                Home
-              </Link>
-              
-              <div className="relative group">
-                <button className="flex items-center gap-1 px-4 py-2 text-sm font-medium text-foreground hover:text-primary transition-colors duration-200 rounded-md hover:bg-primary/5">
-                  {menuStructure.about.label}
-                  <ChevronDown className="w-4 h-4 transition-transform duration-200 group-hover:rotate-180" />
-                </button>
-                <div className="absolute left-0 mt-2 w-64 bg-background/95 backdrop-blur-md rounded-xl border border-primary/20 shadow-xl shadow-primary/10 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform origin-top scale-95 group-hover:scale-100 z-50">
-                  <div className="py-2">
-                    {menuStructure.about.items.map((item) => (
-                      <Link
-                        key={item.href}
-                        href={item.href}
-                        className="block px-4 py-3 text-sm text-foreground hover:bg-primary/10 hover:text-primary transition-all duration-200 first:rounded-t-xl last:rounded-b-xl"
-                      >
-                        <div className="font-medium">{item.label}</div>
-                        <div className="text-xs text-muted-foreground mt-0.5">{item.description}</div>
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-              </div>
-
-              <div className="relative group">
-                <button className="flex items-center gap-1 px-4 py-2 text-sm font-medium text-foreground hover:text-primary transition-colors duration-200 rounded-md hover:bg-primary/5">
-                  {menuStructure.activities.label}
-                  <ChevronDown className="w-4 h-4 transition-transform duration-200 group-hover:rotate-180" />
-                </button>
-                <div className="absolute left-0 mt-2 w-64 bg-background/95 backdrop-blur-md rounded-xl border border-primary/20 shadow-xl shadow-primary/10 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform origin-top scale-95 group-hover:scale-100 z-50">
-                  <div className="py-2">
-                    {menuStructure.activities.items.map((item) => (
-                      <Link
-                        key={item.href}
-                        href={item.href}
-                        className="block px-4 py-3 text-sm text-foreground hover:bg-primary/10 hover:text-primary transition-all duration-200 first:rounded-t-xl last:rounded-b-xl"
-                      >
-                        <div className="font-medium">{item.label}</div>
-                        <div className="text-xs text-muted-foreground mt-0.5">{item.description}</div>
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-              </div>
-
-              <Link
-                href="/gallery"
-                className="px-4 py-2 text-sm font-medium text-foreground hover:text-primary transition-colors duration-200 rounded-md hover:bg-primary/5"
-              >
-                Gallery
-              </Link>
-
-              <div className="ml-2">
-                <ThemeToggle />
-              </div>
-
-              <Link
-                href="/contact"
-                className="ml-2 px-5 py-2.5 text-sm font-medium text-primary-foreground bg-primary hover:bg-primary/90 rounded-lg transition-all duration-200 shadow-lg shadow-primary/25 hover:shadow-primary/35 hover:scale-105 active:scale-95"
-              >
-                Contact
-              </Link>
-            </nav>
-
-            <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden p-2 rounded-lg text-foreground hover:bg-primary/10 hover:text-primary transition-all duration-200 active:scale-95"
-              aria-label="Toggle menu"
-              aria-expanded={isMobileMenuOpen}
-            >
-              {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-            </button>
-          </div>
-        </div>
-      </header>
-
-      {/* Mobile Menu */}
-      <div className={`fixed inset-0 z-30 md:hidden transition-all duration-300 ${
-        isMobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
-      }`}>
-        <div 
-          className="absolute inset-0 bg-background/70 backdrop-blur-sm"
-          onClick={closeMobileMenu}
-        />
-      </div>
-
-      {/* Sidebar dari kiri ke kanan */}
-      <div className={`fixed left-0 top-0 h-full w-[75%] max-w-sm bg-background/95 backdrop-blur-xl border-r border-primary/20 shadow-2xl shadow-primary/20 z-40 md:hidden transform transition-all duration-300 ease-out ${
-        isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full'
-      }`}>
-          <div className="flex flex-col h-full">
-            <div className="flex items-center justify-between p-4 border-b border-primary/20">
-              <Link href="/" className="group flex items-center gap-2" onClick={closeMobileMenu}>
-                <div className="relative w-8 h-8 bg-primary rounded-lg p-1.5 shadow-md shadow-primary/20">
+    <footer className="relative bg-background border-t border-primary/20 mt-16 sm:mt-20 lg:mt-24">
+      <div className="absolute inset-0 bg-linear-to-b from-primary/5 to-transparent pointer-events-none"></div>
+      
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12 lg:py-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-12 mb-10 sm:mb-12">
+          
+          <div className="sm:col-span-2 lg:col-span-4">
+            <Link href="/" className="inline-block group mb-4 sm:mb-5">
+              <div className="flex items-center gap-3">
+                <div className="relative w-11 h-11 sm:w-12 sm:h-12 bg-primary rounded-xl p-2 shadow-lg shadow-primary/25">
                   <Image
                     src="/assets/img/Himatif-White.png"
                     alt="HIMATIF USB Logo"
                     fill
                     className="object-contain drop-shadow-sm"
+                    priority
                   />
                 </div>
+                
                 <div className="relative">
-                  <div className="font-bold text-lg text-primary tracking-tight transition-all duration-300 group-hover:text-primary/80">
+                  <div className="font-bold text-xl sm:text-2xl text-primary tracking-tight transition-all duration-300 group-hover:text-primary/80">
                     HIMATIF USB
                   </div>
                   <div className="absolute -bottom-1 left-0 w-0 h-0.5 bg-linear-to-r from-primary to-transparent group-hover:w-full transition-all duration-300"></div>
                 </div>
-              </Link>
-              <button
-                onClick={closeMobileMenu}
-                className="p-2 rounded-lg text-foreground hover:bg-primary/10 hover:text-primary transition-all duration-200 active:scale-95"
-                aria-label="Close menu"
-              >
-                <X className="w-4 h-4" />
-              </button>
-            </div>
-
-            <nav className="flex-1 overflow-y-auto py-4">
-              <div className="space-y-1 px-3">
-                <Link
-                  href="/"
-                  className="block px-4 py-3 text-base font-medium text-foreground hover:bg-primary/10 hover:text-primary rounded-lg transition-all duration-200"
-                  onClick={closeMobileMenu}
-                >
-                  Home
-                </Link>
-
-                <div className="space-y-1">
-                  <button
-                    onClick={() => setIsAboutOpen(!isAboutOpen)}
-                    className="flex items-center justify-between w-full px-4 py-3 text-base font-medium text-foreground hover:bg-primary/10 hover:text-primary rounded-lg transition-all duration-200"
-                  >
-                    <span>{menuStructure.about.label}</span>
-                    <ChevronDown 
-                      className={`w-4 h-4 transition-transform duration-200 ${isAboutOpen ? 'rotate-180' : ''}`} 
-                    />
-                  </button>
-                  <div className={`overflow-hidden transition-all duration-300 ${
-                    isAboutOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
-                  }`}>
-                    <div className="space-y-1 pt-1">
-                      {menuStructure.about.items.map((item) => (
-                        <Link
-                          key={item.href}
-                          href={item.href}
-                          className="block px-6 py-3 text-sm text-muted-foreground hover:bg-primary/10 hover:text-primary rounded-lg transition-all duration-200 ml-2"
-                          onClick={closeMobileMenu}
-                        >
-                          <div className="font-medium">{item.label}</div>
-                          <div className="text-xs text-muted-foreground mt-0.5">{item.description}</div>
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-
-                <div className="space-y-1">
-                  <button
-                    onClick={() => setIsActivitiesOpen(!isActivitiesOpen)}
-                    className="flex items-center justify-between w-full px-4 py-3 text-base font-medium text-foreground hover:bg-primary/10 hover:text-primary rounded-lg transition-all duration-200"
-                  >
-                    <span>{menuStructure.activities.label}</span>
-                    <ChevronDown 
-                      className={`w-4 h-4 transition-transform duration-200 ${isActivitiesOpen ? 'rotate-180' : ''}`} 
-                    />
-                  </button>
-                  <div className={`overflow-hidden transition-all duration-300 ${
-                    isActivitiesOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
-                  }`}>
-                    <div className="space-y-1 pt-1">
-                      {menuStructure.activities.items.map((item) => (
-                        <Link
-                          key={item.href}
-                          href={item.href}
-                          className="block px-6 py-3 text-sm text-muted-foreground hover:bg-primary/10 hover:text-primary rounded-lg transition-all duration-200 ml-2"
-                          onClick={closeMobileMenu}
-                        >
-                          <div className="font-medium">{item.label}</div>
-                          <div className="text-xs text-muted-foreground mt-0.5">{item.description}</div>
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-
-                <Link
-                  href="/gallery"
-                  className="block px-4 py-3 text-base font-medium text-foreground hover:bg-primary/10 hover:text-primary rounded-lg transition-all duration-200"
-                  onClick={closeMobileMenu}
-                >
-                  Gallery
-                </Link>
-
-                <div className="px-4 py-3">
-                  <div className="flex items-center justify-between">
-                    <span className="text-base font-medium text-foreground">Theme</span>
-                    <ThemeToggle />
-                  </div>
-                </div>
-
-                <Link
-                  href="/contact"
-                  className="block mt-4 px-6 py-3.5 text-base font-medium text-center text-primary-foreground bg-primary hover:bg-primary/90 rounded-lg transition-all duration-200 shadow-lg shadow-primary/30 hover:shadow-primary/40 active:scale-95"
-                  onClick={closeMobileMenu}
-                >
-                  Contact
-                </Link>
               </div>
-            </nav>
+            </Link>
+            <p className="text-muted-foreground text-sm sm:text-base leading-relaxed mb-5 sm:mb-6 max-w-sm">
+              Himpunan Mahasiswa Teknik Informatika USB YPKP Bandung - Membangun komunitas developer yang inovatif dan saling mendukung pertumbuhan skill satu sama lain.
+            </p>
+            <div className="flex items-start gap-2.5 sm:gap-3 text-sm sm:text-base text-muted-foreground group hover:text-primary transition-colors duration-200">
+              <MapPin className="w-4 h-4 sm:w-5 sm:h-5 mt-0.5 shrink-0" />
+              <span>Jl. Khp Hasan Mustopa No.68, Cikutra, Kec. Cibeunying Kidul, Kota Bandung, Jawa Barat 40124</span>
+            </div>
           </div>
-        </div>      
-    </>
+
+          <div className="lg:col-span-2">
+            <h4 className="font-semibold text-foreground text-base sm:text-lg mb-4 sm:mb-5 flex items-center gap-2">
+              Quick Links
+              <div className="h-px flex-1 bg-linear-to-r from-primary/50 to-transparent"></div>
+            </h4>
+            <ul className="space-y-3">
+              {quickLinks.map((link) => (
+                <li key={link.href}>
+                  <Link 
+                    href={link.href}
+                    className="text-muted-foreground text-sm sm:text-base hover:text-primary transition-colors duration-200 flex items-center gap-2 group"
+                  >
+                    <ChevronRight className="w-4 h-4 opacity-0 -ml-6 group-hover:opacity-100 group-hover:ml-0 transition-all duration-200" />
+                    <span>{link.label}</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="lg:col-span-2">
+            <h4 className="font-semibold text-foreground text-base sm:text-lg mb-4 sm:mb-5 flex items-center gap-2">
+              Resources
+              <div className="h-px flex-1 bg-linear-to-r from-primary/50 to-transparent"></div>
+            </h4>
+            <ul className="space-y-3">
+              {resources.map((link) => (
+                <li key={link.href}>
+                  <Link 
+                    href={link.href}
+                    className="text-muted-foreground text-sm sm:text-base hover:text-primary transition-colors duration-200 flex items-center gap-2 group"
+                  >
+                    <ChevronRight className="w-4 h-4 opacity-0 -ml-6 group-hover:opacity-100 group-hover:ml-0 transition-all duration-200" />
+                    <span>{link.label}</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="sm:col-span-2 lg:col-span-4">
+            <h4 className="font-semibold text-foreground text-base sm:text-lg mb-4 sm:mb-5 flex items-center gap-2">
+              Get In Touch
+              <div className="h-px flex-1 bg-linear-to-r from-primary/50 to-transparent"></div>
+            </h4>
+            <div className="space-y-4">
+              <a 
+                href="mailto:himatifusbypkp@gmail.com" 
+                className="flex items-center gap-3 text-muted-foreground text-sm sm:text-base hover:text-primary transition-colors duration-200 group"
+              >
+                <div className="p-2 sm:p-2.5 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors duration-200">
+                  <Mail className="w-4 h-4 sm:w-5 sm:h-5" />
+                </div>
+                <span className="break-all">himatifusbypkp@gmail.com</span>
+              </a>
+              <a 
+                href="tel:+6222022950" 
+                className="flex items-center gap-3 text-muted-foreground text-sm sm:text-base hover:text-primary transition-colors duration-200 group"
+              >
+                <div className="p-2 sm:p-2.5 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors duration-200">
+                  <Phone className="w-4 h-4 sm:w-5 sm:h-5" />
+                </div>
+                <span>+62 22 020 950</span>
+              </a>
+              
+              <div className="pt-2">
+                <p className="text-sm text-muted-foreground mb-3">Follow us on social media</p>
+                <div className="flex flex-wrap gap-2.5 sm:gap-3">
+                  {socialLinks.map((social) => {
+                    const Icon = social.icon
+                    return (
+                      <a
+                        key={social.label}
+                        href={social.href}
+                        aria-label={social.label}
+                        className={`p-2.5 sm:p-3 rounded-lg bg-primary/10 text-muted-foreground hover:bg-primary/20 ${social.color} transition-all duration-200 hover:scale-110 active:scale-95`}
+                      >
+                        <Icon className="w-4 h-4 sm:w-5 sm:h-5" />
+                      </a>
+                    )
+                  })}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="relative">
+          <div className="absolute inset-0 bg-linear-to-r from-transparent via-primary/20 to-transparent h-px"></div>
+          <div className="pt-6 sm:pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <p className="text-muted-foreground text-sm sm:text-base text-center sm:text-left">
+              &copy; {currentYear} HIMATIF USB YPKP. All rights reserved.
+            </p>
+            <div className="flex flex-wrap justify-center gap-4 sm:gap-5 lg:gap-6 text-sm sm:text-base">
+              <Link 
+                href="/privacy" 
+                className="text-muted-foreground hover:text-primary transition-colors duration-200 flex items-center gap-1 group"
+              >
+                Privacy Policy
+                <ExternalLink className="w-3 h-3 sm:w-3.5 sm:h-3.5 opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
+              </Link>
+              <Link 
+                href="/terms" 
+                className="text-muted-foreground hover:text-primary transition-colors duration-200 flex items-center gap-1 group"
+              >
+                Terms of Service
+                <ExternalLink className="w-3 h-3 sm:w-3.5 sm:h-3.5 opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
+              </Link>
+              <Link 
+                href="/contact" 
+                className="text-muted-foreground hover:text-primary transition-colors duration-200 flex items-center gap-1 group"
+              >
+                Contact Us
+                <ExternalLink className="w-3 h-3 sm:w-3.5 sm:h-3.5 opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="absolute bottom-0 left-0 right-0 h-1 bg-linear-to-r from-transparent via-primary/50 to-transparent"></div>
+    </footer>
   )
 }

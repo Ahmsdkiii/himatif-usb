@@ -28,14 +28,14 @@ export default function ContactForm() {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.2 }}
-      className="bg-card/40 backdrop-blur-sm border border-primary/20 rounded-2xl p-8"
+      className="bg-card/40 backdrop-blur-sm border border-primary/20 rounded-2xl p-8 transition-colors duration-300"
     >
-      <h2 className="text-2xl font-bold text-foreground mb-2">Send us a Message</h2>
-      <p className="text-muted-foreground mb-6">Fill out the form dan we'll get back to you soon.</p>
+      <h2 className="text-2xl font-bold text-foreground mb-2 transition-colors duration-300">Send us a Message</h2>
+      <p className="text-muted-foreground mb-6 transition-colors duration-300">Fill out the form dan we'll get back to you soon.</p>
 
       <div className="space-y-6">
         <div>
-          <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
+          <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2 transition-colors duration-300">
             Name
           </label>
           <input
@@ -44,13 +44,13 @@ export default function ContactForm() {
             name="name"
             value={formData.name}
             onChange={handleChange}
-            className="w-full px-4 py-3 bg-background/60 border border-primary/20 rounded-xl text-foreground placeholder-muted-foreground focus:outline-none focus:border-primary/40 focus:ring-2 focus:ring-primary/20 transition-all"
+            className="w-full px-4 py-3 bg-background/60 border border-primary/20 rounded-xl text-foreground placeholder-muted-foreground focus:outline-none focus:border-primary/40 focus:ring-2 focus:ring-primary/20 transition-all duration-300"
             placeholder="Your name"
           />
         </div>
 
         <div>
-          <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
+          <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2 transition-colors duration-300">
             Email
           </label>
           <input
@@ -59,13 +59,13 @@ export default function ContactForm() {
             name="email"
             value={formData.email}
             onChange={handleChange}
-            className="w-full px-4 py-3 bg-background/60 border border-primary/20 rounded-xl text-foreground placeholder-muted-foreground focus:outline-none focus:border-primary/40 focus:ring-2 focus:ring-primary/20 transition-all"
+            className="w-full px-4 py-3 bg-background/60 border border-primary/20 rounded-xl text-foreground placeholder-muted-foreground focus:outline-none focus:border-primary/40 focus:ring-2 focus:ring-primary/20 transition-all duration-300"
             placeholder="your.email@example.com"
           />
         </div>
 
         <div>
-          <label htmlFor="subject" className="block text-sm font-medium text-foreground mb-2">
+          <label htmlFor="subject" className="block text-sm font-medium text-foreground mb-2 transition-colors duration-300">
             Subject
           </label>
           <input
@@ -74,13 +74,13 @@ export default function ContactForm() {
             name="subject"
             value={formData.subject}
             onChange={handleChange}
-            className="w-full px-4 py-3 bg-background/60 border border-primary/20 rounded-xl text-foreground placeholder-muted-foreground focus:outline-none focus:border-primary/40 focus:ring-2 focus:ring-primary/20 transition-all"
+            className="w-full px-4 py-3 bg-background/60 border border-primary/20 rounded-xl text-foreground placeholder-muted-foreground focus:outline-none focus:border-primary/40 focus:ring-2 focus:ring-primary/20 transition-all duration-300"
             placeholder="What's this about?"
           />
         </div>
 
         <div>
-          <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
+          <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2 transition-colors duration-300">
             Message
           </label>
           <textarea
@@ -89,7 +89,7 @@ export default function ContactForm() {
             value={formData.message}
             onChange={handleChange}
             rows={6}
-            className="w-full px-4 py-3 bg-background/60 border border-primary/20 rounded-xl text-foreground placeholder-muted-foreground focus:outline-none focus:border-primary/40 focus:ring-2 focus:ring-primary/20 transition-all resize-none"
+            className="w-full px-4 py-3 bg-background/60 border border-primary/20 rounded-xl text-foreground placeholder-muted-foreground focus:outline-none focus:border-primary/40 focus:ring-2 focus:ring-primary/20 transition-all duration-300 resize-none"
             placeholder="Tell us more..."
           />
         </div>

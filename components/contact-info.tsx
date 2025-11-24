@@ -52,9 +52,9 @@ export default function ContactInfo() {
       transition={{ delay: 0.3 }}
       className="space-y-6"
     >
-      <div className="bg-card/40 backdrop-blur-sm border border-primary/20 rounded-2xl p-8">
-        <h2 className="text-2xl font-bold text-foreground mb-2">Contact Information</h2>
-        <p className="text-muted-foreground mb-8">Reach out melalui berbagai channel kami.</p>
+      <div className="bg-card/40 backdrop-blur-sm border border-primary/20 rounded-2xl p-8 transition-colors duration-300">
+        <h2 className="text-2xl font-bold text-foreground mb-2 transition-colors duration-300">Contact Information</h2>
+        <p className="text-muted-foreground mb-8 transition-colors duration-300">Reach out melalui berbagai channel kami.</p>
 
         <motion.div
           variants={containerVariants}
@@ -75,22 +75,22 @@ export default function ContactInfo() {
                     href={detail.link}
                     className="flex items-start gap-4 p-4 rounded-xl border border-primary/20 bg-background/20 hover:bg-primary/5 hover:border-primary/40 transition-all duration-300"
                   >
-                    <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 text-primary group-hover:bg-primary/20 transition-all shrink-0">
+                    <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 text-primary group-hover:bg-primary/20 transition-all duration-300 shrink-0">
                       <Icon size={24} />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-foreground mb-1">{detail.title}</h3>
-                      <p className="text-muted-foreground text-sm whitespace-pre-line">{detail.content}</p>
+                      <h3 className="font-semibold text-foreground mb-1 transition-colors duration-300">{detail.title}</h3>
+                      <p className="text-muted-foreground text-sm whitespace-pre-line transition-colors duration-300">{detail.content}</p>
                     </div>
                   </a>
                 ) : (
-                  <div className="flex items-start gap-4 p-4 rounded-xl border border-primary/20 bg-background/20">
-                    <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 text-primary shrink-0">
+                  <div className="flex items-start gap-4 p-4 rounded-xl border border-primary/20 bg-background/20 transition-colors duration-300">
+                    <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 text-primary transition-colors duration-300 shrink-0">
                       <Icon size={24} />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-foreground mb-1">{detail.title}</h3>
-                      <p className="text-muted-foreground text-sm whitespace-pre-line">{detail.content}</p>
+                      <h3 className="font-semibold text-foreground mb-1 transition-colors duration-300">{detail.title}</h3>
+                      <p className="text-muted-foreground text-sm whitespace-pre-line transition-colors duration-300">{detail.content}</p>
                     </div>
                   </div>
                 )}
@@ -104,17 +104,17 @@ export default function ContactInfo() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.5 }}
-        className="bg-card/40 backdrop-blur-sm border border-primary/20 rounded-2xl p-8 text-center"
+        className="bg-card/40 backdrop-blur-sm border border-primary/20 rounded-2xl p-8 text-center transition-colors duration-300"
       >
-        <h3 className="text-lg font-bold text-foreground mb-3">Follow Us</h3>
-        <p className="text-muted-foreground mb-6">Stay connected pada social media kami untuk latest updates.</p>
+        <h3 className="text-lg font-bold text-foreground mb-3 transition-colors duration-300">Follow Us</h3>
+        <p className="text-muted-foreground mb-6 transition-colors duration-300">Stay connected pada social media kami untuk latest updates.</p>
         <div className="flex justify-center gap-4">
           {['Facebook', 'Twitter', 'Instagram', 'LinkedIn'].map((platform) => (
             <motion.button
               key={platform}
               whileHover={{ scale: 1.1, y: -2 }}
               whileTap={{ scale: 0.95 }}
-              className="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 text-primary hover:bg-primary/20 hover:border-primary/40 transition-all flex items-center justify-center font-semibold text-xs"
+              className="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 text-primary hover:bg-primary/20 hover:border-primary/40 transition-all duration-300 flex items-center justify-center font-semibold text-xs"
             >
               {platform[0]}
             </motion.button>
