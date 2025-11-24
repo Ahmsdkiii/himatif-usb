@@ -149,7 +149,6 @@ export default function Navbar() {
                 Gallery
               </Link>
 
-              {/* Theme Toggle - Desktop */}
               <div className="ml-2">
                 <ThemeToggle />
               </div>
@@ -183,14 +182,14 @@ export default function Navbar() {
         />
       </div>
 
-      <div className={`fixed right-0 top-0 h-full w-full max-w-sm bg-background border-l border-primary/20 shadow-2xl shadow-primary/20 z-40 md:hidden transform transition-all duration-300 ease-out ${
+      <div className={`fixed right-0 top-0 h-full w-[75%] max-w-sm bg-background/95 backdrop-blur-xl border-l border-primary/20 shadow-2xl shadow-primary/20 z-40 md:hidden transform transition-all duration-300 ease-out ${
         isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
       }`}>
           <div className="flex flex-col h-full">
             <div className="flex items-center justify-between p-5 border-b border-primary/20">
               <Link href="/" className="group" onClick={closeMobileMenu}>
                 <div className="relative">
-                  <div className="font-bold text-2xl text-primary tracking-tight transition-all duration-300 group-hover:text-primary/80">
+                  <div className="font-bold text-xl text-primary tracking-tight transition-all duration-300 group-hover:text-primary/80">
                     HIMATIF
                   </div>
                   <div className="absolute -bottom-1 left-0 w-0 h-0.5 bg-linear-to-r from-primary to-transparent group-hover:w-full transition-all duration-300"></div>
@@ -201,7 +200,7 @@ export default function Navbar() {
                 className="p-2 rounded-lg text-foreground hover:bg-primary/10 hover:text-primary transition-all duration-200 active:scale-95"
                 aria-label="Close menu"
               >
-                <X className="w-6 h-6" />
+                <X className="w-5 h-5" />
               </button>
             </div>
 
@@ -281,7 +280,6 @@ export default function Navbar() {
                   Gallery
                 </Link>
 
-                {/* Theme Toggle - Mobile */}
                 <div className="px-4 py-3">
                   <div className="flex items-center justify-between">
                     <span className="text-base font-medium text-foreground">Theme</span>
