@@ -40,7 +40,7 @@ export default function HeroSection() {
             className="inline-flex items-center gap-2 px-3 sm:px-4 py-2 bg-primary/10 border border-primary/20 rounded-full text-primary text-xs sm:text-sm font-medium backdrop-blur-sm"
           >
             <Sparkles className="w-4 h-4" />
-            <span>Welcome to HIMATIF USB YPKP</span>
+            <span>Welcome to HIMATIF USB YPKP BANDUNG</span>
           </motion.div>
 
           <motion.h1
