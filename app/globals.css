@@ -4,7 +4,6 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Light Mode - Ultra Soft & Warm */
   --background: oklch(0.95 0.01 85);
   --foreground: oklch(0.25 0.02 260);
   --card: oklch(0.97 0.008 85);
@@ -28,7 +27,6 @@
 }
 
 .dark {
-  /* Dark Mode - Balanced & Comfortable */
   --background: oklch(0.14 0.01 250);
   --foreground: oklch(0.90 0.008 85);
   --card: oklch(0.17 0.012 250);
@@ -81,29 +79,55 @@
 @layer base {
   * {
     @apply border-border;
+    transition: border-color 0.6s cubic-bezier(0.65, 0, 0.35, 1);
+  }
+  
+  html {
+    transition: background-color 0.6s cubic-bezier(0.65, 0, 0.35, 1);
   }
   
   body {
     @apply bg-background text-foreground antialiased;
     font-feature-settings: "rlig" 1, "calt" 1;
-    transition: background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
-                color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: background-color 0.6s cubic-bezier(0.65, 0, 0.35, 1), 
+                color 0.6s cubic-bezier(0.65, 0, 0.35, 1);
     
-    /* Subtle paper grain texture */
     background-image: 
       radial-gradient(circle at 20% 50%, transparent 0%, var(--background) 100%),
       url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
   }
   
-  /* Blur effect on cards */
+  html.theme-transitioning,
+  html.theme-transitioning *,
+  html.theme-transitioning *::before,
+  html.theme-transitioning *::after {
+    transition: background-color 0.6s cubic-bezier(0.65, 0, 0.35, 1) !important,
+                color 0.6s cubic-bezier(0.65, 0, 0.35, 1) !important,
+                border-color 0.6s cubic-bezier(0.65, 0, 0.35, 1) !important,
+                box-shadow 0.6s cubic-bezier(0.65, 0, 0.35, 1) !important,
+                fill 0.6s cubic-bezier(0.65, 0, 0.35, 1) !important,
+                stroke 0.6s cubic-bezier(0.65, 0, 0.35, 1) !important;
+  }
+  
   [class*="bg-card"],
-  [class*="bg-primary/"] {
+  [class*="bg-primary/"],
+  [class*="bg-background"] {
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
+    transition: background-color 0.6s cubic-bezier(0.65, 0, 0.35, 1),
+                backdrop-filter 0.6s cubic-bezier(0.65, 0, 0.35, 1);
   }
   
   h1, h2, h3, h4, h5, h6 {
     @apply font-semibold tracking-tight;
+    transition: color 0.6s cubic-bezier(0.65, 0, 0.35, 1);
+  }
+  
+  a, button {
+    transition: color 0.6s cubic-bezier(0.65, 0, 0.35, 1),
+                background-color 0.6s cubic-bezier(0.65, 0, 0.35, 1),
+                border-color 0.6s cubic-bezier(0.65, 0, 0.35, 1),
+                box-shadow 0.3s cubic-bezier(0.65, 0, 0.35, 1);
   }
 }
 
@@ -112,11 +136,12 @@
     text-wrap: balance;
   }
   
-  /* Utility untuk blur effects */
   .glass-effect {
     backdrop-filter: blur(12px) saturate(180%);
     -webkit-backdrop-filter: blur(12px) saturate(180%);
     background-color: rgba(255, 255, 255, 0.7);
+    transition: background-color 0.6s cubic-bezier(0.65, 0, 0.35, 1),
+                backdrop-filter 0.6s cubic-bezier(0.65, 0, 0.35, 1);
   }
   
   .dark .glass-effect {
