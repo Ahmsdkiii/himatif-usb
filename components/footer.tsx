@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { Mail, Phone, MapPin, Linkedin, Instagram, Facebook, Github, ChevronRight, ExternalLink } from 'lucide-react'
 
 export default function Footer() {
@@ -31,40 +32,54 @@ export default function Footer() {
     <footer className="relative bg-background border-t border-primary/20 mt-20">
       <div className="absolute inset-0 bg-linear-to-b from-primary/5 to-transparent pointer-events-none"></div>
       
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-12 mb-12">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12 lg:py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6 md:gap-8 lg:gap-12 mb-8 md:mb-12">
           
           <div className="lg:col-span-4">
             <Link href="/" className="inline-block group mb-4">
-              <div className="relative">
-                <div className="font-bold text-3xl text-primary tracking-tight transition-all duration-300 group-hover:text-primary/80">
-                  HIMATIF USB
+              <div className="flex items-center gap-2 md:gap-3 lg:gap-4">
+                {/* Logo Container - Responsive Size */}
+                <div className="relative w-10 h-10 lg:w-12 lg:h-12 bg-primary rounded-lg md:rounded-xl p-2 md:p-2.5 shadow-lg shadow-primary/25">
+                  <Image
+                    src="/assets/img/Himatif-White.png"
+                    alt="HIMATIF USB Logo"
+                    fill
+                    className="object-contain drop-shadow-sm"
+                    priority
+                  />
                 </div>
-                <div className="absolute -bottom-1 left-0 w-0 h-0.5 bg-linear-to-r from-primary to-transparent group-hover:w-full transition-all duration-300"></div>
+                
+                {/* Text - Responsive Size */}
+                <div className="relative">
+                  <div className="font-bold text-xl lg:text-2xl text-primary tracking-tight transition-all duration-300 group-hover:text-primary/80">
+                    HIMATIF USB
+                  </div>
+                  <div className="absolute -bottom-1 left-0 w-0 h-0.5 bg-linear-to-r from-primary to-transparent group-hover:w-full transition-all duration-300"></div>
+                </div>
               </div>
             </Link>
-            <p className="text-muted-foreground text-sm leading-relaxed mb-6 max-w-sm">
+            <p className="text-muted-foreground text-sm leading-relaxed mb-4 md:mb-6 max-w-sm">
               Himpunan Mahasiswa Teknik Informatika USB YPKP Bandung - Membangun komunitas developer yang inovatif dan saling mendukung pertumbuhan skill satu sama lain.
             </p>
-            <div className="flex items-start gap-3 text-sm text-muted-foreground group hover:text-primary transition-colors duration-200">
-              <MapPin className="w-4 h-4 mt-0.5 shrink-0" />
+            <div className="flex items-start gap-2 md:gap-3 text-xs md:text-sm text-muted-foreground group hover:text-primary transition-colors duration-200">
+              <MapPin className="w-3 h-3 md:w-4 md:h-4 mt-0.5 shrink-0" />
               <span>Jl. Khp Hasan Mustopa No.68, Cikutra, Kec. Cibeunying Kidul, Kota Bandung, Jawa Barat 40124</span>
             </div>
           </div>
 
           <div className="lg:col-span-2">
-            <h4 className="font-semibold text-foreground text-base mb-4 flex items-center gap-2">
+            <h4 className="font-semibold text-foreground text-sm md:text-base mb-3 md:mb-4 flex items-center gap-2">
               Quick Links
               <div className="h-px flex-1 bg-linear-to-r from-primary/50 to-transparent"></div>
             </h4>
-            <ul className="space-y-3">
+            <ul className="space-y-2 md:space-y-3">
               {quickLinks.map((link) => (
                 <li key={link.href}>
                   <Link 
                     href={link.href}
-                    className="text-muted-foreground text-sm hover:text-primary transition-colors duration-200 flex items-center gap-2 group"
+                    className="text-muted-foreground text-xs md:text-sm hover:text-primary transition-colors duration-200 flex items-center gap-2 group"
                   >
-                    <ChevronRight className="w-3 h-3 opacity-0 -ml-5 group-hover:opacity-100 group-hover:ml-0 transition-all duration-200" />
+                    <ChevronRight className="w-2 h-2 md:w-3 md:h-3 opacity-0 -ml-4 md:-ml-5 group-hover:opacity-100 group-hover:ml-0 transition-all duration-200" />
                     <span>{link.label}</span>
                   </Link>
                 </li>
@@ -73,18 +88,18 @@ export default function Footer() {
           </div>
 
           <div className="lg:col-span-2">
-            <h4 className="font-semibold text-foreground text-base mb-4 flex items-center gap-2">
+            <h4 className="font-semibold text-foreground text-sm md:text-base mb-3 md:mb-4 flex items-center gap-2">
               Resources
               <div className="h-px flex-1 bg-linear-to-r from-primary/50 to-transparent"></div>
             </h4>
-            <ul className="space-y-3">
+            <ul className="space-y-2 md:space-y-3">
               {resources.map((link) => (
                 <li key={link.href}>
                   <Link 
                     href={link.href}
-                    className="text-muted-foreground text-sm hover:text-primary transition-colors duration-200 flex items-center gap-2 group"
+                    className="text-muted-foreground text-xs md:text-sm hover:text-primary transition-colors duration-200 flex items-center gap-2 group"
                   >
-                    <ChevronRight className="w-3 h-3 opacity-0 -ml-5 group-hover:opacity-100 group-hover:ml-0 transition-all duration-200" />
+                    <ChevronRight className="w-2 h-2 md:w-3 md:h-3 opacity-0 -ml-4 md:-ml-5 group-hover:opacity-100 group-hover:ml-0 transition-all duration-200" />
                     <span>{link.label}</span>
                   </Link>
                 </li>
@@ -93,33 +108,33 @@ export default function Footer() {
           </div>
 
           <div className="lg:col-span-4">
-            <h4 className="font-semibold text-foreground text-base mb-4 flex items-center gap-2">
+            <h4 className="font-semibold text-foreground text-sm md:text-base mb-3 md:mb-4 flex items-center gap-2">
               Get In Touch
               <div className="h-px flex-1 bg-linear-to-r from-primary/50 to-transparent"></div>
             </h4>
-            <div className="space-y-4">
+            <div className="space-y-3 md:space-y-4">
               <a 
                 href="mailto:himatifusbypkp@gmail.com" 
-                className="flex items-center gap-3 text-muted-foreground text-sm hover:text-primary transition-colors duration-200 group"
+                className="flex items-center gap-2 md:gap-3 text-muted-foreground text-xs md:text-sm hover:text-primary transition-colors duration-200 group"
               >
-                <div className="p-2 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors duration-200">
-                  <Mail className="w-4 h-4" />
+                <div className="p-1.5 md:p-2 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors duration-200">
+                  <Mail className="w-3 h-3 md:w-4 md:h-4" />
                 </div>
                 <span>himatifusbypkp@gmail.com</span>
               </a>
               <a 
                 href="tel:+6222022950" 
-                className="flex items-center gap-3 text-muted-foreground text-sm hover:text-primary transition-colors duration-200 group"
+                className="flex items-center gap-2 md:gap-3 text-muted-foreground text-xs md:text-sm hover:text-primary transition-colors duration-200 group"
               >
-                <div className="p-2 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors duration-200">
-                  <Phone className="w-4 h-4" />
+                <div className="p-1.5 md:p-2 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors duration-200">
+                  <Phone className="w-3 h-3 md:w-4 md:h-4" />
                 </div>
                 <span>+62 22 020 950</span>
               </a>
               
-              <div className="pt-2">
-                <p className="text-xs text-muted-foreground mb-3">Follow us on social media</p>
-                <div className="flex gap-3">
+              <div className="pt-1 md:pt-2">
+                <p className="text-xs text-muted-foreground mb-2 md:mb-3">Follow us on social media</p>
+                <div className="flex gap-2 md:gap-3">
                   {socialLinks.map((social) => {
                     const Icon = social.icon
                     return (
@@ -127,9 +142,9 @@ export default function Footer() {
                         key={social.label}
                         href={social.href}
                         aria-label={social.label}
-                        className={`p-2.5 rounded-lg bg-primary/10 text-muted-foreground hover:bg-primary/20 ${social.color} transition-all duration-200 hover:scale-110 active:scale-95`}
+                        className={`p-2 md:p-2.5 rounded-lg bg-primary/10 text-muted-foreground hover:bg-primary/20 ${social.color} transition-all duration-200 hover:scale-110 active:scale-95`}
                       >
-                        <Icon className="w-4 h-4" />
+                        <Icon className="w-3 h-3 md:w-4 md:h-4" />
                       </a>
                     )
                   })}
@@ -141,31 +156,31 @@ export default function Footer() {
 
         <div className="relative">
           <div className="absolute inset-0 bg-linear-to-r from-transparent via-primary/20 to-transparent h-px"></div>
-          <div className="pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-muted-foreground text-sm">
+          <div className="pt-6 md:pt-8 flex flex-col md:flex-row justify-between items-center gap-3 md:gap-4">
+            <p className="text-muted-foreground text-xs md:text-sm text-center md:text-left">
               &copy; {currentYear} HIMATIF USB YPKP. All rights reserved.
             </p>
-            <div className="flex flex-wrap justify-center gap-6 text-sm">
+            <div className="flex flex-wrap justify-center gap-4 md:gap-6 text-xs md:text-sm">
               <Link 
                 href="/privacy" 
                 className="text-muted-foreground hover:text-primary transition-colors duration-200 flex items-center gap-1 group"
               >
                 Privacy Policy
-                <ExternalLink className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
+                <ExternalLink className="w-2 h-2 md:w-3 md:h-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
               </Link>
               <Link 
                 href="/terms" 
                 className="text-muted-foreground hover:text-primary transition-colors duration-200 flex items-center gap-1 group"
               >
                 Terms of Service
-                <ExternalLink className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
+                <ExternalLink className="w-2 h-2 md:w-3 md:h-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
               </Link>
               <Link 
                 href="/contact" 
                 className="text-muted-foreground hover:text-primary transition-colors duration-200 flex items-center gap-1 group"
               >
                 Contact Us
-                <ExternalLink className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
+                <ExternalLink className="w-2 h-2 md:w-3 md:h-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
               </Link>
             </div>
           </div>

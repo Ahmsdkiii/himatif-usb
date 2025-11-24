@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { useState, useEffect } from 'react'
 import { Menu, X, ChevronDown } from 'lucide-react'
 import { ThemeToggle } from './theme-toggle'
@@ -81,11 +82,22 @@ export default function Navbar() {
           : 'bg-background shadow-lg shadow-primary/10'
       }`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-20">
+          <div className="flex items-center justify-between h-16 md:h-20">
             
-            <Link href="/" className="shrink-0 group" onClick={closeMobileMenu}>
+            <Link href="/" className="shrink-0 group flex items-center gap-2 md:gap-3" onClick={closeMobileMenu}>              
+              <div className="relative w-10 h-10 lg:w-12 lg:h-12 bg-primary rounded-lg md:rounded-xl p-1.5 md:p-2 shadow-md md:shadow-lg shadow-primary/20 md:shadow-primary/25">
+                <Image
+                  src="/assets/img/Himatif-White.png"
+                  alt="HIMATIF USB Logo"
+                  fill
+                  className="object-contain drop-shadow-sm"
+                  priority
+                />
+              </div>
+              
+              
               <div className="relative">
-                <div className="font-bold text-2xl text-primary tracking-tight transition-all duration-300 group-hover:text-primary/80">
+                <div className="font-bold text-xl lg:text-2xl text-primary tracking-tight transition-all duration-300 group-hover:text-primary/80">
                   HIMATIF USB 
                 </div>
                 <div className="absolute -bottom-1 left-0 w-0 h-0.5 bg-linear-to-r from-primary to-transparent group-hover:w-full transition-all duration-300"></div>
@@ -167,12 +179,13 @@ export default function Navbar() {
               aria-label="Toggle menu"
               aria-expanded={isMobileMenuOpen}
             >
-              {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
           </div>
         </div>
       </header>
 
+      {/* Mobile Menu */}
       <div className={`fixed inset-0 z-30 md:hidden transition-all duration-300 ${
         isMobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
       }`}>
@@ -186,10 +199,18 @@ export default function Navbar() {
         isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
       }`}>
           <div className="flex flex-col h-full">
-            <div className="flex items-center justify-between p-5 border-b border-primary/20">
-              <Link href="/" className="group" onClick={closeMobileMenu}>
+            <div className="flex items-center justify-between p-4 border-b border-primary/20">
+              <Link href="/" className="group flex items-center gap-2" onClick={closeMobileMenu}>
+                <div className="relative w-8 h-8 bg-primary rounded-lg p-1.5 shadow-md shadow-primary/20">
+                  <Image
+                    src="/assets/img/Himatif-White.png"
+                    alt="HIMATIF USB Logo"
+                    fill
+                    className="object-contain drop-shadow-sm"
+                  />
+                </div>
                 <div className="relative">
-                  <div className="font-bold text-xl text-primary tracking-tight transition-all duration-300 group-hover:text-primary/80">
+                  <div className="font-bold text-lg text-primary tracking-tight transition-all duration-300 group-hover:text-primary/80">
                     HIMATIF USB
                   </div>
                   <div className="absolute -bottom-1 left-0 w-0 h-0.5 bg-linear-to-r from-primary to-transparent group-hover:w-full transition-all duration-300"></div>
@@ -200,7 +221,7 @@ export default function Navbar() {
                 className="p-2 rounded-lg text-foreground hover:bg-primary/10 hover:text-primary transition-all duration-200 active:scale-95"
                 aria-label="Close menu"
               >
-                <X className="w-5 h-5" />
+                <X className="w-4 h-4" />
               </button>
             </div>
 

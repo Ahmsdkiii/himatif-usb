@@ -19,7 +19,7 @@ export const teamMembers: Record<string, TeamMember[]> = {
       npm: '2113231026',
       npp: '1.3.3.03.004',
       angkatan: '2023',
-      image: '/assets/img/inti/kahima.png',
+      image: '/assets/img/inti/image.png',
     },
     {
       id: 2,
