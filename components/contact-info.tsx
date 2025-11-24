@@ -8,8 +8,8 @@ export default function ContactInfo() {
     {
       icon: Mail,
       title: 'Email',
-      content: 'himatif@usb.ac.id',
-      link: 'mailto:himatif@usb.ac.id',
+      content: 'himatifusbypkp@gmail.com',
+      link: 'mailto:himatifusbypkp@gmail.com',
     },
     {
       icon: Phone,
@@ -20,7 +20,7 @@ export default function ContactInfo() {
     {
       icon: MapPin,
       title: 'Office Location',
-      content: 'Jl. Setiabudi No. 193\nBandung, Jawa Barat',
+      content: 'Jl. Khp Hasan Mustopa No.68, Cikutra, Kec. Cibeunying Kidul, Kota Bandung, Jawa Barat 40124',
       link: null,
     },
     {

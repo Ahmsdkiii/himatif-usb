@@ -86,7 +86,7 @@ export default function Navbar() {
             <Link href="/" className="shrink-0 group" onClick={closeMobileMenu}>
               <div className="relative">
                 <div className="font-bold text-2xl text-primary tracking-tight transition-all duration-300 group-hover:text-primary/80">
-                  HIMATIF USB
+                  HIMATIF USB 
                 </div>
                 <div className="absolute -bottom-1 left-0 w-0 h-0.5 bg-linear-to-r from-primary to-transparent group-hover:w-full transition-all duration-300"></div>
               </div>
@@ -190,7 +190,7 @@ export default function Navbar() {
               <Link href="/" className="group" onClick={closeMobileMenu}>
                 <div className="relative">
                   <div className="font-bold text-xl text-primary tracking-tight transition-all duration-300 group-hover:text-primary/80">
-                    HIMATIF
+                    HIMATIF USB
                   </div>
                   <div className="absolute -bottom-1 left-0 w-0 h-0.5 bg-linear-to-r from-primary to-transparent group-hover:w-full transition-all duration-300"></div>
                 </div>

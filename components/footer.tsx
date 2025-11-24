@@ -48,7 +48,7 @@ export default function Footer() {
             </p>
             <div className="flex items-start gap-3 text-sm text-muted-foreground group hover:text-primary transition-colors duration-200">
               <MapPin className="w-4 h-4 mt-0.5 shrink-0" />
-              <span>Jl. Setiabudi No. 193, Bandung, Jawa Barat, Indonesia</span>
+              <span>Jl. Khp Hasan Mustopa No.68, Cikutra, Kec. Cibeunying Kidul, Kota Bandung, Jawa Barat 40124</span>
             </div>
           </div>
 
@@ -99,13 +99,13 @@ export default function Footer() {
             </h4>
             <div className="space-y-4">
               <a 
-                href="mailto:himatif@usb.ac.id" 
+                href="mailto:himatifusbypkp@gmail.com" 
                 className="flex items-center gap-3 text-muted-foreground text-sm hover:text-primary transition-colors duration-200 group"
               >
                 <div className="p-2 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors duration-200">
                   <Mail className="w-4 h-4" />
                 </div>
-                <span>himatif@usb.ac.id</span>
+                <span>himatifusbypkp@gmail.com</span>
               </a>
               <a 
                 href="tel:+6222022950" 
