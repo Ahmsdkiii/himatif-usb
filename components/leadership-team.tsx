@@ -54,7 +54,7 @@ export default function LeadershipTeam() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3 }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
           >
             {teamMembers[activeTab].map((member, index) => {
               const Icon = tabs.find(tab => tab.id === activeTab)?.icon || Users
@@ -69,22 +69,24 @@ export default function LeadershipTeam() {
                 >
                   <div className="absolute inset-0 bg-linear-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   
-                  <div className="relative bg-primary/10 h-48 flex items-center justify-center border-b border-primary/20 overflow-hidden">
+                  <div className="relative aspect-3/4 w-full overflow-hidden">
                     <Image
                       src={member.image}
                       alt={member.name}
-                      width={200}
-                      height={200}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                    />
-                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300"></div>
+                      fill 
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                      className="object-cover object-center group-hover:scale-105 transition-transform duration-700"
+                      priority={index < 4}
+                      quality={85} 
+                    />                    
+                    <div className="absolute inset-0 bg-linear-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   </div>
 
                   <div className="relative p-6">
                     <h3 className="text-lg font-bold text-foreground mb-1">{member.name}</h3>
                     <p className="text-primary font-semibold text-sm mb-2">{member.position}</p>
                     <div className="text-xs text-muted-foreground space-y-1">
-                      <p>NPM: {member.npm}</p>
+                      <p>NPP: {member.npp}</p>
                       <p>Angkatan: {member.angkatan}</p>
                     </div>
                   </div>

@@ -45,13 +45,7 @@ export default function AboutHero() {
         >
           Pelajari lebih dalam tentang Himpunan Mahasiswa Teknik Informatika, perjalanan kami, dan nilai-nilai yang memandu kami dalam melayani komunitas developer.
         </motion.p>
-      </motion.div>
-
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce hidden sm:block">
-        <div className="w-6 h-10 border-2 border-primary/30 rounded-full flex items-start justify-center p-2">
-          <div className="w-1.5 h-1.5 bg-primary rounded-full"></div>
-        </div>
-      </div>
+      </motion.div>      
     </section>
   )
 }
