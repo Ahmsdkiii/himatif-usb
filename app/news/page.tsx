@@ -12,7 +12,7 @@ export default function NewsPage() {
     <main>
       <NewsHero />
       {selectedArticle === null ? (
-        <NewsGrid onSelectArticle={setSelectedArticle} />
+        <NewsGrid  />
       ) : (
         <NewsDetail articleId={selectedArticle} onBack={() => setSelectedArticle(null)} />
       )}
