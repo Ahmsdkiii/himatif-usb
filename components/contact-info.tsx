@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { Mail, Phone, MapPin, Clock } from 'lucide-react'
+import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn } from 'react-icons/fa'
 
 export default function ContactInfo() {
   const contactDetails = [
@@ -13,21 +14,44 @@ export default function ContactInfo() {
     },
     {
       icon: Phone,
-      title: 'Phone',
+      title: 'Telepon',
       content: '+62 22 020 950',
       link: 'tel:+6222022950',
     },
     {
       icon: MapPin,
-      title: 'Office Location',
+      title: 'Lokasi Sekretariat',
       content: 'Jl. Khp Hasan Mustopa No.68, Cikutra, Kec. Cibeunying Kidul, Kota Bandung, Jawa Barat 40124',
       link: null,
     },
     {
       icon: Clock,
-      title: 'Office Hours',
-      content: 'Monday - Friday\n9:00 AM - 5:00 PM',
+      title: 'Jam Operasional',
+      content: 'Senin - Jumat\n09:00 - 17:00 WIB',
       link: null,
+    },
+  ]
+
+  const socialMedia = [
+    {
+      name: 'Facebook',
+      icon: FaFacebookF,
+      href: '#',
+    },
+    {
+      name: 'Twitter',
+      icon: FaTwitter,
+      href: '#',
+    },
+    {
+      name: 'Instagram',
+      icon: FaInstagram,
+      href: '#',
+    },
+    {
+      name: 'LinkedIn',
+      icon: FaLinkedinIn,
+      href: '#',
     },
   ]
 
@@ -53,23 +77,18 @@ export default function ContactInfo() {
       className="space-y-6"
     >
       <div className="bg-card/40 backdrop-blur-sm border border-primary/20 rounded-2xl p-8 transition-colors duration-300">
-        <h2 className="text-2xl font-bold text-foreground mb-2 transition-colors duration-300">Contact Information</h2>
-        <p className="text-muted-foreground mb-8 transition-colors duration-300">Reach out melalui berbagai channel kami.</p>
+        <h2 className="text-2xl font-bold text-foreground mb-2 transition-colors duration-300">
+          Informasi Kontak
+        </h2>
+        <p className="text-muted-foreground mb-8 transition-colors duration-300">
+          Hubungi kami melalui berbagai saluran yang tersedia.
+        </p>
 
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-          className="space-y-6"
-        >
+        <motion.div variants={containerVariants} initial="hidden" animate="visible" className="space-y-6">
           {contactDetails.map((detail, index) => {
             const Icon = detail.icon
             return (
-              <motion.div
-                key={index}
-                variants={itemVariants}
-                className="group"
-              >
+              <motion.div key={index} variants={itemVariants} className="group">
                 {detail.link ? (
                   <a
                     href={detail.link}
@@ -79,8 +98,12 @@ export default function ContactInfo() {
                       <Icon size={24} />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-foreground mb-1 transition-colors duration-300">{detail.title}</h3>
-                      <p className="text-muted-foreground text-sm whitespace-pre-line transition-colors duration-300">{detail.content}</p>
+                      <h3 className="font-semibold text-foreground mb-1 transition-colors duration-300">
+                        {detail.title}
+                      </h3>
+                      <p className="text-muted-foreground text-sm whitespace-pre-line transition-colors duration-300">
+                        {detail.content}
+                      </p>
                     </div>
                   </a>
                 ) : (
@@ -89,8 +112,12 @@ export default function ContactInfo() {
                       <Icon size={24} />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-foreground mb-1 transition-colors duration-300">{detail.title}</h3>
-                      <p className="text-muted-foreground text-sm whitespace-pre-line transition-colors duration-300">{detail.content}</p>
+                      <h3 className="font-semibold text-foreground mb-1 transition-colors duration-300">
+                        {detail.title}
+                      </h3>
+                      <p className="text-muted-foreground text-sm whitespace-pre-line transition-colors duration-300">
+                        {detail.content}
+                      </p>
                     </div>
                   </div>
                 )}
@@ -106,19 +133,31 @@ export default function ContactInfo() {
         transition={{ delay: 0.5 }}
         className="bg-card/40 backdrop-blur-sm border border-primary/20 rounded-2xl p-8 text-center transition-colors duration-300"
       >
-        <h3 className="text-lg font-bold text-foreground mb-3 transition-colors duration-300">Follow Us</h3>
-        <p className="text-muted-foreground mb-6 transition-colors duration-300">Stay connected pada social media kami untuk latest updates.</p>
+        <h3 className="text-lg font-bold text-foreground mb-3 transition-colors duration-300">
+          Ikuti Kami
+        </h3>
+        <p className="text-muted-foreground mb-6 transition-colors duration-300">
+          Tetap terhubung lewat media sosial kami untuk mendapatkan informasi terbaru.
+        </p>
+
         <div className="flex justify-center gap-4">
-          {['Facebook', 'Twitter', 'Instagram', 'LinkedIn'].map((platform) => (
-            <motion.button
-              key={platform}
-              whileHover={{ scale: 1.1, y: -2 }}
-              whileTap={{ scale: 0.95 }}
-              className="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 text-primary hover:bg-primary/20 hover:border-primary/40 transition-all duration-300 flex items-center justify-center font-semibold text-xs"
-            >
-              {platform[0]}
-            </motion.button>
-          ))}
+          {socialMedia.map((item) => {
+            const Icon = item.icon
+            return (
+              <motion.a
+                key={item.name}
+                href={item.href}
+                target="_blank"
+                rel="noreferrer"
+                whileHover={{ scale: 1.1, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+                className="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 text-primary hover:bg-primary/20 hover:border-primary/40 transition-all duration-300 flex items-center justify-center"
+                aria-label={item.name}
+              >
+                <Icon size={18} />
+              </motion.a>
+            )
+          })}
         </div>
       </motion.div>
     </motion.div>

@@ -13,7 +13,7 @@ export default function ContactForm() {
   })
 
   const handleSubmit = () => {
-    console.log('Form submitted:', formData)
+    console.log('Form dikirim:', formData)
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -30,13 +30,20 @@ export default function ContactForm() {
       transition={{ delay: 0.2 }}
       className="bg-card/40 backdrop-blur-sm border border-primary/20 rounded-2xl p-8 transition-colors duration-300"
     >
-      <h2 className="text-2xl font-bold text-foreground mb-2 transition-colors duration-300">Send us a Message</h2>
-      <p className="text-muted-foreground mb-6 transition-colors duration-300">Fill out the form dan we'll get back to you soon.</p>
+      <h2 className="text-2xl font-bold text-foreground mb-2 transition-colors duration-300">
+        Kirim Pesan ke Kami
+      </h2>
+      <p className="text-muted-foreground mb-6 transition-colors duration-300">
+        Silakan isi formulir di bawah ini, dan kami akan segera menghubungi kamu.
+      </p>
 
       <div className="space-y-6">
         <div>
-          <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2 transition-colors duration-300">
-            Name
+          <label
+            htmlFor="name"
+            className="block text-sm font-medium text-foreground mb-2 transition-colors duration-300"
+          >
+            Nama
           </label>
           <input
             type="text"
@@ -45,12 +52,15 @@ export default function ContactForm() {
             value={formData.name}
             onChange={handleChange}
             className="w-full px-4 py-3 bg-background/60 border border-primary/20 rounded-xl text-foreground placeholder-muted-foreground focus:outline-none focus:border-primary/40 focus:ring-2 focus:ring-primary/20 transition-all duration-300"
-            placeholder="Your name"
+            placeholder="Masukkan nama kamu"
           />
         </div>
 
         <div>
-          <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2 transition-colors duration-300">
+          <label
+            htmlFor="email"
+            className="block text-sm font-medium text-foreground mb-2 transition-colors duration-300"
+          >
             Email
           </label>
           <input
@@ -60,13 +70,16 @@ export default function ContactForm() {
             value={formData.email}
             onChange={handleChange}
             className="w-full px-4 py-3 bg-background/60 border border-primary/20 rounded-xl text-foreground placeholder-muted-foreground focus:outline-none focus:border-primary/40 focus:ring-2 focus:ring-primary/20 transition-all duration-300"
-            placeholder="your.email@example.com"
+            placeholder="contoh@email.com"
           />
         </div>
 
         <div>
-          <label htmlFor="subject" className="block text-sm font-medium text-foreground mb-2 transition-colors duration-300">
-            Subject
+          <label
+            htmlFor="subject"
+            className="block text-sm font-medium text-foreground mb-2 transition-colors duration-300"
+          >
+            Subjek
           </label>
           <input
             type="text"
@@ -75,13 +88,16 @@ export default function ContactForm() {
             value={formData.subject}
             onChange={handleChange}
             className="w-full px-4 py-3 bg-background/60 border border-primary/20 rounded-xl text-foreground placeholder-muted-foreground focus:outline-none focus:border-primary/40 focus:ring-2 focus:ring-primary/20 transition-all duration-300"
-            placeholder="What's this about?"
+            placeholder="Pesan ini tentang apa?"
           />
         </div>
 
         <div>
-          <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2 transition-colors duration-300">
-            Message
+          <label
+            htmlFor="message"
+            className="block text-sm font-medium text-foreground mb-2 transition-colors duration-300"
+          >
+            Pesan
           </label>
           <textarea
             id="message"
@@ -90,7 +106,7 @@ export default function ContactForm() {
             onChange={handleChange}
             rows={6}
             className="w-full px-4 py-3 bg-background/60 border border-primary/20 rounded-xl text-foreground placeholder-muted-foreground focus:outline-none focus:border-primary/40 focus:ring-2 focus:ring-primary/20 transition-all duration-300 resize-none"
-            placeholder="Tell us more..."
+            placeholder="Tulis pesan kamu di sini..."
           />
         </div>
 
@@ -101,7 +117,7 @@ export default function ContactForm() {
           className="w-full px-6 py-4 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold rounded-xl transition-all duration-300 shadow-lg shadow-primary/30 hover:shadow-primary/40 flex items-center justify-center gap-2"
         >
           <Send size={20} />
-          <span>Send Message</span>
+          <span>Kirim Pesan</span>
         </motion.button>
       </div>
     </motion.div>
