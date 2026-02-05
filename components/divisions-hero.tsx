@@ -34,7 +34,7 @@ export default function DivisionsHero() {
           transition={{ delay: 0.3 }}
           className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-tight"
         >
-          Our <span className="text-transparent bg-clip-text bg-linear-to-r from-primary via-accent to-primary">Divisions</span>
+          Divisi <span className="text-transparent bg-clip-text bg-linear-to-r from-primary via-accent to-primary">HIMATIF</span>
         </motion.h1>
 
         <motion.p
@@ -43,7 +43,7 @@ export default function DivisionsHero() {
           transition={{ delay: 0.4 }}
           className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed"
         >
-          Explore our specialized divisions dan temukan perfect fit untuk interests dan skills kamu dalam dunia teknologi.
+          Kenali berbagai divisi yang ada di HIMATIF, dan temukan divisi yang paling cocok dengan minat serta kemampuan kamu di bidang teknologi.
         </motion.p>
       </motion.div>
     </section>

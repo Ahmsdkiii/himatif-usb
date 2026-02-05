@@ -7,6 +7,7 @@ export default function AboutHero() {
   return (
     <section className="relative min-h-[60vh] bg-background flex items-center justify-center px-4 pt-32 pb-16 overflow-hidden">
       <div className="absolute inset-0 bg-linear-to-b from-primary/10 via-transparent to-transparent"></div>
+
       <div className="absolute inset-0">
         <div className="absolute top-20 left-10 w-72 h-72 bg-primary/20 rounded-full blur-3xl"></div>
         <div className="absolute bottom-20 right-10 w-96 h-96 bg-primary/10 rounded-full blur-3xl"></div>
@@ -34,7 +35,10 @@ export default function AboutHero() {
           transition={{ delay: 0.3 }}
           className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-tight"
         >
-          About <span className="text-transparent bg-clip-text bg-linear-to-r from-primary via-accent to-primary">HIMATIF USB</span>
+          Tentang{' '}
+          <span className="text-transparent bg-clip-text bg-linear-to-r from-primary via-accent to-primary">
+            HIMATIF USB YPKP
+          </span>
         </motion.h1>
 
         <motion.p
@@ -43,9 +47,11 @@ export default function AboutHero() {
           transition={{ delay: 0.4 }}
           className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed"
         >
-          Pelajari lebih dalam tentang Himpunan Mahasiswa Teknik Informatika, perjalanan kami, dan nilai-nilai yang memandu kami dalam melayani komunitas developer.
+          Pelajari lebih dalam tentang Himpunan Mahasiswa Teknik Informatika,
+          perjalanan kami, serta nilai-nilai yang memandu kami dalam melayani
+          komunitas developer.
         </motion.p>
-      </motion.div>      
+      </motion.div>
     </section>
   )
 }

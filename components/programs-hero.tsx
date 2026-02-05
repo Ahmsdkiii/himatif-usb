@@ -25,7 +25,7 @@ export default function ProgramsHero() {
           className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/20 rounded-full text-primary text-sm font-medium backdrop-blur-sm mb-6"
         >
           <Rocket className="w-4 h-4" />
-          <span>Programs & Initiatives</span>
+          <span>Program & Kegiatan</span>
         </motion.div>
 
         <motion.h1
@@ -34,7 +34,10 @@ export default function ProgramsHero() {
           transition={{ delay: 0.3 }}
           className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-tight"
         >
-          Programs & <span className="text-transparent bg-clip-text bg-linear-to-r from-primary via-accent to-primary">Work Plans</span>
+          Program &{' '}
+          <span className="text-transparent bg-clip-text bg-linear-to-r from-primary via-accent to-primary">
+            Rencana Kerja
+          </span>
         </motion.h1>
 
         <motion.p
@@ -43,7 +46,9 @@ export default function ProgramsHero() {
           transition={{ delay: 0.4 }}
           className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed"
         >
-          Discover our annual initiatives dan ongoing programs yang dirancang untuk enhance student life dan technical excellence.
+          Jelajahi berbagai program tahunan dan kegiatan berkelanjutan yang
+          dirancang untuk meningkatkan kualitas mahasiswa serta mengembangkan
+          kompetensi dan keunggulan di bidang teknologi.
         </motion.p>
       </motion.div>
     </section>

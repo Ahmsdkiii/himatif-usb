@@ -1,4 +1,4 @@
-export interface TeamMember {
+export interface CabinetSolaris {
   id: number
   name: string
   position: string
@@ -9,7 +9,7 @@ export interface TeamMember {
   image: string
 }
 
-export const teamMembers: Record<string, TeamMember[]> = {
+export const cabinetSolarisMembers: Record<string, CabinetSolaris[]> = {
   executive: [
     {
       id: 1,

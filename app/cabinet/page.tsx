@@ -1,11 +1,10 @@
-import CabinetHero from '@/components/cabinet-hero'
-import LeadershipTeam from '@/components/leadership-team'
+import CabinetSection from '@/components/cabinet-section'
+import { Cabin } from 'next/font/google'
 
 export default function CabinetPage() {
   return (
     <main>
-      <CabinetHero />
-      <LeadershipTeam />
+      <CabinetSection />
     </main>
   )
 }

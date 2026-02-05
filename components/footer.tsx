@@ -2,23 +2,33 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
-import { Mail, Phone, MapPin, Linkedin, Instagram, Facebook, Github, ChevronRight, ExternalLink } from 'lucide-react'
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Linkedin,
+  Instagram,
+  Facebook,
+  Github,
+  ChevronRight,
+  ExternalLink,
+} from 'lucide-react'
 
 export default function Footer() {
-  const currentYear = 2025
+  const currentYear = new Date().getFullYear()
 
   const quickLinks = [
-    { href: '/', label: 'Home' },
-    { href: '/about', label: 'About Us' },
-    { href: '/cabinet', label: 'Cabinet' },
-    { href: '/programs', label: 'Programs' },
+    { href: '/', label: 'Beranda' },
+    { href: '/about', label: 'Tentang HIMATIF' },
+    { href: '/cabinet', label: 'Kabinet' },
+    { href: '/divisions', label: 'Divisi' },
   ]
 
   const resources = [
-    { href: '/news', label: 'News & Events' },
-    { href: '/gallery', label: 'Gallery' },
-    { href: '/workshops', label: 'Workshops' },
-    { href: '/divisions', label: 'Divisions' },
+    { href: '/programs', label: 'Program Kerja' },
+    { href: '/news', label: 'Berita & Kegiatan' },
+    { href: '/gallery', label: 'Galeri Dokumentasi' },
+    { href: '/workshops', label: 'Workshop & Pelatihan' },
   ]
 
   const socialLinks = [
@@ -31,10 +41,10 @@ export default function Footer() {
   return (
     <footer className="relative bg-background border-t border-primary/20 mt-16 sm:mt-20 lg:mt-24">
       <div className="absolute inset-0 bg-linear-to-b from-primary/5 to-transparent pointer-events-none"></div>
-      
+
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12 lg:py-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-12 mb-10 sm:mb-12">
-          
+          {/* Brand */}
           <div className="sm:col-span-2 lg:col-span-4">
             <Link href="/" className="inline-block group mb-4 sm:mb-5">
               <div className="flex items-center gap-3">
@@ -47,7 +57,7 @@ export default function Footer() {
                     priority
                   />
                 </div>
-                
+
                 <div className="relative">
                   <div className="font-bold text-xl sm:text-2xl text-primary tracking-tight transition-all duration-300 group-hover:text-primary/80">
                     HIMATIF USB
@@ -56,24 +66,31 @@ export default function Footer() {
                 </div>
               </div>
             </Link>
+
             <p className="text-muted-foreground text-sm sm:text-base leading-relaxed mb-5 sm:mb-6 max-w-sm">
-              Himpunan Mahasiswa Teknik Informatika USB YPKP Bandung - Membangun komunitas developer yang inovatif dan saling mendukung pertumbuhan skill satu sama lain.
+              Himpunan Mahasiswa Teknik Informatika USB YPKP Bandung — wadah pengembangan potensi mahasiswa,
+              kolaborasi, serta penyaluran aspirasi dan kontribusi nyata di bidang teknologi informasi.
             </p>
+
             <div className="flex items-start gap-2.5 sm:gap-3 text-sm sm:text-base text-muted-foreground group hover:text-primary transition-colors duration-200">
               <MapPin className="w-4 h-4 sm:w-5 sm:h-5 mt-0.5 shrink-0" />
-              <span>Jl. Khp Hasan Mustopa No.68, Cikutra, Kec. Cibeunying Kidul, Kota Bandung, Jawa Barat 40124</span>
+              <span>
+                Jl. Khp Hasan Mustopa No.68, Cikutra, Kec. Cibeunying Kidul, Kota Bandung, Jawa Barat 40124
+              </span>
             </div>
           </div>
 
+          {/* Quick Links */}
           <div className="lg:col-span-2">
             <h4 className="font-semibold text-foreground text-base sm:text-lg mb-4 sm:mb-5 flex items-center gap-2">
-              Quick Links
+              Tautan Cepat
               <div className="h-px flex-1 bg-linear-to-r from-primary/50 to-transparent"></div>
             </h4>
+
             <ul className="space-y-3">
               {quickLinks.map((link) => (
                 <li key={link.href}>
-                  <Link 
+                  <Link
                     href={link.href}
                     className="text-muted-foreground text-sm sm:text-base hover:text-primary transition-colors duration-200 flex items-center gap-2 group"
                   >
@@ -85,15 +102,17 @@ export default function Footer() {
             </ul>
           </div>
 
+          {/* Resources */}
           <div className="lg:col-span-2">
             <h4 className="font-semibold text-foreground text-base sm:text-lg mb-4 sm:mb-5 flex items-center gap-2">
-              Resources
+              Informasi
               <div className="h-px flex-1 bg-linear-to-r from-primary/50 to-transparent"></div>
             </h4>
+
             <ul className="space-y-3">
               {resources.map((link) => (
                 <li key={link.href}>
-                  <Link 
+                  <Link
                     href={link.href}
                     className="text-muted-foreground text-sm sm:text-base hover:text-primary transition-colors duration-200 flex items-center gap-2 group"
                   >
@@ -105,14 +124,16 @@ export default function Footer() {
             </ul>
           </div>
 
+          {/* Contact */}
           <div className="sm:col-span-2 lg:col-span-4">
             <h4 className="font-semibold text-foreground text-base sm:text-lg mb-4 sm:mb-5 flex items-center gap-2">
-              Get In Touch
+              Hubungi Kami
               <div className="h-px flex-1 bg-linear-to-r from-primary/50 to-transparent"></div>
             </h4>
+
             <div className="space-y-4">
-              <a 
-                href="mailto:himatifusbypkp@gmail.com" 
+              <a
+                href="mailto:himatifusbypkp@gmail.com"
                 className="flex items-center gap-3 text-muted-foreground text-sm sm:text-base hover:text-primary transition-colors duration-200 group"
               >
                 <div className="p-2 sm:p-2.5 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors duration-200">
@@ -120,8 +141,9 @@ export default function Footer() {
                 </div>
                 <span className="break-all">himatifusbypkp@gmail.com</span>
               </a>
-              <a 
-                href="tel:+6222022950" 
+
+              <a
+                href="tel:+6222022950"
                 className="flex items-center gap-3 text-muted-foreground text-sm sm:text-base hover:text-primary transition-colors duration-200 group"
               >
                 <div className="p-2 sm:p-2.5 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors duration-200">
@@ -129,9 +151,10 @@ export default function Footer() {
                 </div>
                 <span>+62 22 020 950</span>
               </a>
-              
+
               <div className="pt-2">
-                <p className="text-sm text-muted-foreground mb-3">Follow us on social media</p>
+                <p className="text-sm text-muted-foreground mb-3">Ikuti Kami di Media Sosial</p>
+
                 <div className="flex flex-wrap gap-2.5 sm:gap-3">
                   {socialLinks.map((social) => {
                     const Icon = social.icon
@@ -152,32 +175,37 @@ export default function Footer() {
           </div>
         </div>
 
+        {/* Bottom */}
         <div className="relative">
           <div className="absolute inset-0 bg-linear-to-r from-transparent via-primary/20 to-transparent h-px"></div>
+
           <div className="pt-6 sm:pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
             <p className="text-muted-foreground text-sm sm:text-base text-center sm:text-left">
-              &copy; {currentYear} HIMATIF USB YPKP. All rights reserved.
+              &copy; {currentYear} HIMATIF USB YPKP. Seluruh hak cipta dilindungi.
             </p>
+
             <div className="flex flex-wrap justify-center gap-4 sm:gap-5 lg:gap-6 text-sm sm:text-base">
-              <Link 
-                href="/privacy" 
+              <Link
+                href="/privacy"
                 className="text-muted-foreground hover:text-primary transition-colors duration-200 flex items-center gap-1 group"
               >
-                Privacy Policy
+                Kebijakan Privasi
                 <ExternalLink className="w-3 h-3 sm:w-3.5 sm:h-3.5 opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
               </Link>
-              <Link 
-                href="/terms" 
+
+              <Link
+                href="/terms"
                 className="text-muted-foreground hover:text-primary transition-colors duration-200 flex items-center gap-1 group"
               >
-                Terms of Service
+                Syarat & Ketentuan
                 <ExternalLink className="w-3 h-3 sm:w-3.5 sm:h-3.5 opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
               </Link>
-              <Link 
-                href="/contact" 
+
+              <Link
+                href="/contact"
                 className="text-muted-foreground hover:text-primary transition-colors duration-200 flex items-center gap-1 group"
               >
-                Contact Us
+                Kontak
                 <ExternalLink className="w-3 h-3 sm:w-3.5 sm:h-3.5 opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
               </Link>
             </div>

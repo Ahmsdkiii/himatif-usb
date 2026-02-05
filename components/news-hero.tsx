@@ -25,7 +25,7 @@ export default function NewsHero() {
           className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/20 rounded-full text-primary text-sm font-medium backdrop-blur-sm mb-6"
         >
           <Newspaper className="w-4 h-4" />
-          <span>Latest Updates</span>
+          <span>Info & Pembaruan</span>
         </motion.div>
 
         <motion.h1
@@ -34,7 +34,10 @@ export default function NewsHero() {
           transition={{ delay: 0.3 }}
           className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-tight"
         >
-          News & <span className="text-transparent bg-clip-text bg-linear-to-r from-primary via-accent to-primary">Updates</span>
+          Berita &{' '}
+          <span className="text-transparent bg-clip-text bg-linear-to-r from-primary via-accent to-primary">
+            Pembaruan
+          </span>
         </motion.h1>
 
         <motion.p
@@ -43,7 +46,8 @@ export default function NewsHero() {
           transition={{ delay: 0.4 }}
           className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed"
         >
-          Stay informed about the latest announcements dan articles dari HIMATIF USB YPKP.
+          Tetap terhubung dengan informasi terbaru, pengumuman, serta artikel
+          kegiatan dari HIMATIF USB YPKP.
         </motion.p>
       </motion.div>
     </section>

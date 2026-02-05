@@ -1,15 +1,15 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Eye, Target } from 'lucide-react'
+import { Lightbulb, Flag } from 'lucide-react'
 
 export default function VisionMissionSection() {
   const missions = [
-    'Create inclusive tech events dan programs untuk semua mahasiswa',
-    'Develop student leaders melalui training dan mentorship',
-    'Advocate untuk student interests dan well-being',
-    'Foster sense of community dan belonging di kalangan developer',
-    'Support academic dan personal development di bidang teknologi',
+    'Menyelenggarakan kegiatan dan program teknologi yang inklusif untuk seluruh mahasiswa',
+    'Membentuk calon pemimpin mahasiswa melalui pelatihan dan pendampingan',
+    'Menjadi wadah aspirasi serta memperjuangkan kepentingan dan kesejahteraan mahasiswa',
+    'Membangun rasa kebersamaan dan solidaritas di lingkungan mahasiswa Teknik Informatika',
+    'Mendukung pengembangan akademik dan penguatan keterampilan di bidang teknologi',
   ]
 
   return (
@@ -21,6 +21,7 @@ export default function VisionMissionSection() {
 
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          {/* VISION */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -28,21 +29,35 @@ export default function VisionMissionSection() {
             transition={{ duration: 0.6 }}
             className="space-y-6"
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/20 rounded-full text-primary text-sm font-medium backdrop-blur-sm">
-              <Eye className="w-4 h-4" />
-              <span>Our Vision</span>
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/20 rounded-full text-primary text-sm font-semibold backdrop-blur-sm">
+              <Lightbulb className="w-4 h-4" />
+              <span>Visi</span>
             </div>
-            <h3 className="text-3xl md:text-4xl font-bold text-foreground">Building Tomorrow's Tech Leaders</h3>
+
+            <h3 className="text-3xl md:text-4xl font-bold text-foreground">
+              Membangun Generasi Pemimpin Teknologi Masa Depan
+            </h3>
+
             <div className="space-y-4">
-              <p className="text-muted-foreground leading-relaxed">
-                Kami membayangkan vibrant campus community di mana setiap mahasiswa memiliki kesempatan untuk grow, lead, dan make meaningful impact. Kami percaya pada power of collaboration dan inclusivity, menciptakan spaces di mana diverse voices dihargai dan didengar.
+              <p className="text-muted-foreground leading-relaxed text-justify">
+                Kami membayangkan lingkungan kampus yang aktif dan suportif,
+                di mana setiap mahasiswa memiliki kesempatan untuk berkembang,
+                berkontribusi, dan memberi dampak nyata. Kami percaya pada
+                kekuatan kolaborasi dan sikap inklusif, sehingga setiap ide dan
+                suara mahasiswa dapat dihargai serta didengar.
               </p>
-              <p className="text-muted-foreground leading-relaxed">
-                Visi kami melampaui campus walls—kami bertujuan memupuk sense of responsibility dan commitment to community service, menginspirasi members kami menjadi engaged citizens dan changemakers di society.
+
+              <p className="text-muted-foreground leading-relaxed text-justify">
+                Visi kami tidak hanya terbatas di lingkungan kampus, tetapi juga
+                mendorong terciptanya rasa tanggung jawab dan kepedulian sosial.
+                Kami ingin menginspirasi anggota HIMATIF untuk menjadi pribadi
+                yang aktif, bermanfaat, dan mampu menjadi agen perubahan di
+                masyarakat.
               </p>
             </div>
           </motion.div>
 
+          {/* MISSION */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -50,14 +65,21 @@ export default function VisionMissionSection() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="space-y-6"
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/20 rounded-full text-primary text-sm font-medium backdrop-blur-sm">
-              <Target className="w-4 h-4" />
-              <span>Our Mission</span>
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/20 rounded-full text-primary text-sm font-semibold backdrop-blur-sm">
+              <Flag className="w-4 h-4" />
+              <span>Misi</span>
             </div>
-            <h3 className="text-3xl md:text-4xl font-bold text-foreground">Unite, Inspire & Empower</h3>
-            <p className="text-muted-foreground leading-relaxed">
-              Misi kami adalah menyatukan student body melalui meaningful programs, events, dan initiatives yang foster personal growth, academic excellence, dan social responsibility di bidang teknologi.
+
+            <h3 className="text-3xl md:text-4xl font-bold text-foreground">
+              Menyatukan, Menginspirasi, dan Memberdayakan
+            </h3>
+
+            <p className="text-muted-foreground leading-relaxed text-justify">
+              Misi kami adalah menyatukan mahasiswa melalui program, kegiatan,
+              dan inisiatif yang bermakna, guna mendorong pengembangan diri,
+              prestasi akademik, serta tanggung jawab sosial di bidang teknologi.
             </p>
+
             <div className="space-y-3 pt-2">
               {missions.map((mission, index) => (
                 <motion.div
@@ -71,7 +93,10 @@ export default function VisionMissionSection() {
                   <div className="flex items-center justify-center w-6 h-6 rounded-full bg-primary/10 border border-primary/20 shrink-0 mt-0.5 group-hover:bg-primary/20 group-hover:border-primary/40 transition-all duration-300">
                     <span className="text-primary font-bold text-sm">✓</span>
                   </div>
-                  <span className="text-muted-foreground leading-relaxed">{mission}</span>
+
+                  <span className="text-muted-foreground leading-relaxed text-justify">
+                    {mission}
+                  </span>
                 </motion.div>
               ))}
             </div>

@@ -1,7 +1,9 @@
 'use client'
 
+import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { ArrowLeft, ShoppingCart, Info, Star, ChevronRight, Home } from 'lucide-react'
+import Image from 'next/image'
+import { ArrowLeft, Info, Star, ChevronRight, Home, MessageCircle, Package } from 'lucide-react'
 
 interface Props {
   productId: number
@@ -20,145 +22,96 @@ interface Product {
   reviews: number
   description: string
   details: string[]
-  colors: string[]
+  packages: string[]
   specs: ProductSpecs
+  image: string
 }
 
 export default function ProductDetail({ productId, onBack }: Props) {
+  const [selectedPackage, setSelectedPackage] = useState<string>('')
+  const [quantity, setQuantity] = useState<number>(1)
+  const [customerName, setCustomerName] = useState<string>('')
+  const [customerPhone, setCustomerPhone] = useState<string>('')
+  const [showOrderForm, setShowOrderForm] = useState<boolean>(false)
+
   const products: Record<number, Product> = {
     1: {
-      name: 'Official Logo T-Shirt',
-      price: 19.99,
-      category: 'Apparel',
-      rating: 4.8,
-      reviews: 145,
-      description: 'Comfortable cotton t-shirt featuring the Student Association logo. Perfect for showing your school spirit!',
+      name: 'Jasa Pembuatan Website',
+      price: 2500000,
+      category: 'Jasa Digital',
+      rating: 4.9,
+      reviews: 87,
+      description: 'Layanan pembuatan website profesional untuk kebutuhan bisnis, organisasi, atau personal Anda dengan teknologi terkini dan desain modern.',
       details: [
-        '100% premium cotton',
-        'Comfortable fit',
-        'Available in XS-XXL',
-        'Screen-printed SA logo',
-        'Machine washable',
+        'Desain website modern dan responsif',
+        'Optimasi SEO untuk mesin pencari',
+        'Loading cepat dan performa optimal',
+        'Admin panel untuk kelola konten',
+        'Gratis maintenance 3 bulan',
+        'Gratis domain .com untuk 1 tahun',
+        'SSL Certificate gratis',
+        'Training penggunaan website',
       ],
-      colors: ['Black', 'White', 'Green'],
+      packages: ['Landing Page', 'Company Profile', 'E-Commerce', 'Custom'],
       specs: {
-        Material: '100% Cotton',
-        Weight: '5.3 oz/yd²',
-        Fit: 'Unisex',
-        Sizes: 'XS-XXL',
+        'Waktu Pengerjaan': '7-14 hari',
+        'Revisi': 'Unlimited',
+        'Teknologi': 'Next.js, React, Tailwind',
+        'Hosting': '1 Tahun Gratis',
       },
+      image: '/assets/img/products/jasa-web.png',
     },
     2: {
-      name: 'Campus Hoodie',
-      price: 34.99,
-      category: 'Apparel',
-      rating: 4.9,
-      reviews: 98,
-      description: 'Cozy hoodie perfect for campus life. Features embroidered SA logo on chest and kangaroo pocket.',
+      name: 'Jasa Desain Grafis',
+      price: 500000,
+      category: 'Jasa Digital',
+      rating: 4.8,
+      reviews: 124,
+      description: 'Layanan desain grafis profesional untuk berbagai kebutuhan branding, marketing, dan promosi Anda dengan hasil berkualitas tinggi.',
       details: [
-        '80% cotton, 20% polyester blend',
-        'Double-stitched construction',
-        'Embroidered chest logo',
-        'Kangaroo pocket',
-        'Available in XS-XXL',
+        'Desain original dan kreatif',
+        'File format lengkap (AI, PSD, PNG, JPG)',
+        'Revisi hingga puas',
+        'Konsultasi desain gratis',
+        'Commercial use rights',
+        'Brand guideline (untuk paket logo)',
+        'Mockup presentasi',
+        'Fast response dan deadline tepat',
       ],
-      colors: ['Black', 'Gray', 'Green'],
+      packages: ['Logo', 'Poster', 'Banner', 'Social Media', 'Custom'],
       specs: {
-        Material: '80% Cotton, 20% Poly',
-        Weight: '9.5 oz/yd²',
-        Fit: 'Unisex',
-        Sizes: 'XS-XXL',
+        'Waktu Pengerjaan': '3-5 hari',
+        'Revisi': '3x Revisi',
+        'Format File': 'AI, PSD, PNG, JPG, PDF',
+        'Ukuran': 'Custom sesuai kebutuhan',
       },
+      image: '/assets/img/products/jasa-desain.png',
     },
     3: {
-      name: 'Vintage Cap',
-      price: 16.99,
-      category: 'Accessories',
-      rating: 4.6,
-      reviews: 67,
-      description: 'Classic adjustable cap with embroidered logo. Great for any occasion.',
+      name: 'Jaket Himpunan',
+      price: 175000,
+      category: 'Merchandise',
+      rating: 4.9,
+      reviews: 156,
+      description: 'Jaket resmi Himpunan Mahasiswa dengan bahan berkualitas premium, desain eksklusif, dan kenyamanan maksimal untuk kegiatan kampus.',
       details: [
-        'Adjustable back strap',
-        'Embroidered SA logo',
-        'Cotton twill fabric',
-        '100% breathable',
-        'One size fits most',
+        'Bahan fleece premium tebal dan hangat',
+        'Sablon/bordir logo Himatif berkualitas',
+        'Resleting YKK anti rusak',
+        'Kantong dalam dan luar',
+        'Jahitan rapi dan kuat',
+        'Warna tidak mudah pudar',
+        'Nyaman dipakai sehari-hari',
+        'Pre-order 2-3 minggu',
       ],
-      colors: ['Black', 'Khaki', 'Green'],
+      packages: ['S', 'M', 'L', 'XL', 'XXL'],
       specs: {
-        Material: 'Cotton Twill',
-        Closure: 'Adjustable Strap',
-        Size: 'One Size',
-        Logo: 'Embroidered',
+        Material: 'Fleece Premium',
+        Berat: '±400 gram',
+        Jenis: 'Zipper Hoodie',
+        'Cara Perawatan': 'Cuci dengan tangan/mesin',
       },
-    },
-    4: {
-      name: 'Water Bottle',
-      price: 24.99,
-      category: 'Accessories',
-      rating: 4.7,
-      reviews: 112,
-      description: 'Durable stainless steel water bottle. Keep hydrated in style while showing your SA pride.',
-      details: [
-        'Double-wall insulated',
-        'Keeps drinks cold for 24 hours',
-        'Keeps drinks hot for 12 hours',
-        'BPA-free',
-        'Leak-proof lid',
-        'Capacity: 18 oz',
-      ],
-      colors: ['Black', 'Silver'],
-      specs: {
-        Material: 'Stainless Steel',
-        Capacity: '18 oz',
-        Insulation: 'Double-Wall',
-        Lid: 'Leak-Proof',
-      },
-    },
-    5: {
-      name: 'Backpack',
-      price: 44.99,
-      category: 'Accessories',
-      rating: 4.8,
-      reviews: 89,
-      description: 'Spacious laptop backpack with SA branding. Perfect for carrying your essentials to class and beyond.',
-      details: [
-        'Fits laptops up to 15.6 inches',
-        'Multiple compartments',
-        'Padded laptop sleeve',
-        'Water-resistant material',
-        'Ergonomic straps',
-        'USB charging port',
-      ],
-      colors: ['Black', 'Gray'],
-      specs: {
-        Material: 'Water-Resistant Nylon',
-        'Laptop Size': 'Up to 15.6"',
-        Compartments: 'Multi-compartment',
-        Capacity: '25L',
-      },
-    },
-    6: {
-      name: 'Sticker Pack',
-      price: 4.99,
-      category: 'Digital',
-      rating: 4.5,
-      reviews: 203,
-      description: 'Set of 5 vibrant SA stickers. Decorate your laptop, phone, water bottle, or anywhere else!',
-      details: [
-        'Set of 5 stickers',
-        'Weather-resistant vinyl',
-        'Easy to peel and apply',
-        'No residue when removed',
-        'Vibrant colors',
-      ],
-      colors: [],
-      specs: {
-        'Stickers per Pack': '5',
-        Material: 'Vinyl',
-        Weather: 'Resistant',
-        'Max Size': '3" x 3"',
-      },
+      image: '/assets/img/products/jahim.png',
     },
   }
 
@@ -166,14 +119,67 @@ export default function ProductDetail({ productId, onBack }: Props) {
 
   const getCategoryColor = (category: string) => {
     const colors: Record<string, { bg: string; text: string; border: string }> = {
-      Apparel: { bg: 'bg-blue-500/10', text: 'text-blue-400', border: 'border-blue-500/20' },
-      Accessories: { bg: 'bg-purple-500/10', text: 'text-purple-400', border: 'border-purple-500/20' },
-      Digital: { bg: 'bg-pink-500/10', text: 'text-pink-400', border: 'border-pink-500/20' },
+      'Jasa Digital': { bg: 'bg-blue-500/10', text: 'text-blue-400', border: 'border-blue-500/20' },
+      'Merchandise': { bg: 'bg-purple-500/10', text: 'text-purple-400', border: 'border-purple-500/20' },
     }
     return colors[category] || { bg: 'bg-primary/10', text: 'text-primary', border: 'border-primary/20' }
   }
 
   const colors = getCategoryColor(product.category)
+
+  const formatPrice = (price: number) => {
+    return new Intl.NumberFormat('id-ID', {
+      style: 'currency',
+      currency: 'IDR',
+      minimumFractionDigits: 0,
+    }).format(price)
+  }
+
+  const handleOrderNow = () => {
+    if (!selectedPackage) {
+      alert('Silakan pilih paket/ukuran terlebih dahulu!')
+      return
+    }
+    setShowOrderForm(true)
+  }
+
+  const handleWhatsAppOrder = () => {
+    if (!customerName.trim()) {
+      alert('Silakan masukkan nama Anda!')
+      return
+    }
+    if (!customerPhone.trim()) {
+      alert('Silakan masukkan nomor WhatsApp Anda!')
+      return
+    }
+
+    const totalPrice = product.price * quantity
+    const whatsappNumber = '6281462251984'
+    
+    const message = `*HIMATIF - Pesanan Baru*
+
+*Informasi Customer:*
+Nama: ${customerName}
+No. WhatsApp: ${customerPhone}
+
+*Detail Produk:*
+Produk: ${product.name}
+Kategori: ${product.category}
+${product.category === 'Merchandise' ? 'Ukuran' : 'Paket'}: ${selectedPackage}
+Jumlah: ${quantity}
+Harga per Item: ${formatPrice(product.price)}
+
+*Total Harga: ${formatPrice(totalPrice)}*
+
+Saya ingin memesan produk ini. Mohon konfirmasi ketersediaan dan detail pembayaran.
+
+Terima kasih!`
+
+    const encodedMessage = encodeURIComponent(message)
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`
+    
+    window.open(whatsappUrl, '_blank')
+  }
 
   return (
     <section className="relative py-24 bg-background overflow-hidden">
@@ -190,7 +196,7 @@ export default function ProductDetail({ productId, onBack }: Props) {
           className="flex items-center gap-2 text-primary hover:text-primary/80 transition-colors mb-8 group"
         >
           <ArrowLeft size={20} className="group-hover:-translate-x-1 transition-transform duration-300" />
-          <span className="font-medium">Back to Shop</span>
+          <span className="font-medium">Kembali ke Toko</span>
         </motion.button>
 
         <motion.div
@@ -201,7 +207,7 @@ export default function ProductDetail({ productId, onBack }: Props) {
         >
           <Home size={16} />
           <ChevronRight size={16} className="text-muted-foreground/50" />
-          <span>Shop</span>
+          <span>Toko</span>
           <ChevronRight size={16} className="text-muted-foreground/50" />
           <span className="text-primary">{product.name}</span>
         </motion.div>
@@ -211,13 +217,23 @@ export default function ProductDetail({ productId, onBack }: Props) {
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.1 }}
-            className="bg-card/40 backdrop-blur-sm border border-primary/20 rounded-2xl h-96 flex items-center justify-center sticky top-24"
+            className="bg-card/40 backdrop-blur-sm border border-primary/20 rounded-2xl overflow-hidden sticky top-24 h-[500px]"
           >
-            <div className="text-center">
-              <div className="text-8xl font-bold text-primary/20 mb-4">{product.name.charAt(0)}</div>
-              <span className={`inline-block text-xs font-semibold px-3 py-1.5 rounded-lg ${colors.bg} ${colors.text} border ${colors.border}`}>
-                {product.category}
-              </span>
+            <div className="relative w-full h-full">
+              <Image
+                src={product.image}
+                alt={product.name}
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                priority
+              />
+              <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent"></div>
+              <div className="absolute bottom-6 left-6">
+                <span className={`inline-block text-xs font-semibold px-3 py-1.5 rounded-lg backdrop-blur-md ${colors.bg} ${colors.text} border ${colors.border}`}>
+                  {product.category}
+                </span>
+              </div>
             </div>
           </motion.div>
 
@@ -239,7 +255,7 @@ export default function ProductDetail({ productId, onBack }: Props) {
                   ))}
                 </div>
                 <span className="text-sm text-muted-foreground">
-                  {product.rating} ({product.reviews} reviews)
+                  {product.rating} ({product.reviews} ulasan)
                 </span>
               </div>
 
@@ -253,44 +269,158 @@ export default function ProductDetail({ productId, onBack }: Props) {
               transition={{ delay: 0.2 }}
               className="mb-8 pb-8 border-b border-primary/20"
             >
-              <div className="text-5xl font-bold text-primary mb-3">${product.price}</div>
-              <p className="text-muted-foreground text-sm">Free shipping pada orders over $50</p>
+              <div className="flex items-baseline gap-2 mb-2">
+                <span className="text-sm text-muted-foreground">Mulai dari</span>
+              </div>
+              <div className="text-4xl md:text-5xl font-bold text-primary mb-3">{formatPrice(product.price)}</div>
+              <p className="text-muted-foreground text-sm">Harga dapat bervariasi tergantung paket yang dipilih</p>
             </motion.div>
 
-            {product.colors.length > 0 && (
+            {!showOrderForm ? (
+              <>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.25 }}
+                  className="mb-8"
+                >
+                  <label className="block text-sm font-semibold text-foreground mb-4">
+                    Pilih {product.category === 'Merchandise' ? 'Ukuran' : 'Paket'}: <span className="text-primary">*</span>
+                  </label>
+                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                    {product.packages.map((pkg, index) => (
+                      <button
+                        key={index}
+                        onClick={() => setSelectedPackage(pkg)}
+                        className={`px-4 py-3 rounded-xl border-2 font-semibold transition-all hover:scale-105 active:scale-95 text-sm ${
+                          selectedPackage === pkg
+                            ? 'border-primary bg-primary text-primary-foreground shadow-lg shadow-primary/30'
+                            : 'border-primary/20 bg-card/40 text-foreground hover:border-primary/40'
+                        }`}
+                      >
+                        {pkg}
+                      </button>
+                    ))}
+                  </div>
+                </motion.div>
+
+                {product.category !== 'Jasa Digital' && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.3 }}
+                    className="mb-8"
+                  >
+                    <label className="block text-sm font-semibold text-foreground mb-4">
+                      Jumlah:
+                    </label>
+                    <div className="flex items-center gap-4">
+                      <button
+                        onClick={() => setQuantity(Math.max(1, quantity - 1))}
+                        className="w-12 h-12 rounded-xl border-2 border-primary/20 bg-card/40 hover:border-primary/40 hover:bg-primary/10 transition-all font-bold text-lg"
+                      >
+                        -
+                      </button>
+                      <span className="text-2xl font-bold text-foreground w-16 text-center">{quantity}</span>
+                      <button
+                        onClick={() => setQuantity(quantity + 1)}
+                        className="w-12 h-12 rounded-xl border-2 border-primary/20 bg-card/40 hover:border-primary/40 hover:bg-primary/10 transition-all font-bold text-lg"
+                      >
+                        +
+                      </button>
+                    </div>
+                  </motion.div>
+                )}
+
+                <motion.button
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.35 }}
+                  onClick={handleOrderNow}
+                  className="px-8 py-4 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold rounded-xl transition-all duration-300 shadow-lg shadow-primary/30 hover:shadow-primary/40 hover:scale-105 active:scale-95 flex items-center justify-center gap-3 text-lg mb-8"
+                >
+                  <Package size={22} />
+                  Pesan Sekarang via WhatsApp
+                </motion.button>
+              </>
+            ) : (
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.25 }}
-                className="mb-8"
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.1 }}
+                className="bg-card/60 backdrop-blur-sm border border-primary/30 rounded-2xl p-8 mb-8"
               >
-                <label className="block text-sm font-semibold text-foreground mb-4">
-                  Select Color:
-                </label>
-                <div className="flex gap-4">
-                  {product.colors.map((color, index) => (
-                    <button
-                      key={index}
-                      className="w-12 h-12 rounded-full border-2 border-primary/20 hover:border-primary transition-all hover:scale-110 active:scale-95"
-                      style={{
-                        backgroundColor: color === 'Black' ? '#000' : color === 'White' ? '#fff' : color === 'Green' ? '#22c55e' : color === 'Gray' ? '#999' : color === 'Khaki' ? '#d4af37' : color === 'Silver' ? '#c0c0c0' : '#ccc',
-                      }}
-                      title={color}
+                <h3 className="text-xl font-bold text-foreground mb-6 flex items-center gap-2">
+                  <MessageCircle size={24} className="text-primary" />
+                  Lengkapi Pesanan Anda
+                </h3>
+
+                <div className="space-y-4 mb-6">
+                  <div className="bg-background/50 rounded-xl p-4 border border-primary/20">
+                    <div className="flex justify-between items-start mb-2">
+                      <span className="text-sm text-muted-foreground">Produk:</span>
+                      <span className="font-semibold text-foreground text-right">{product.name}</span>
+                    </div>
+                    <div className="flex justify-between items-start mb-2">
+                      <span className="text-sm text-muted-foreground">{product.category === 'Merchandise' ? 'Ukuran' : 'Paket'}:</span>
+                      <span className="font-semibold text-primary">{selectedPackage}</span>
+                    </div>
+                    {product.category !== 'Jasa Digital' && (
+                      <div className="flex justify-between items-start mb-2">
+                        <span className="text-sm text-muted-foreground">Jumlah:</span>
+                        <span className="font-semibold text-foreground">{quantity}</span>
+                      </div>
+                    )}
+                    <div className="flex justify-between items-start pt-3 border-t border-primary/20 mt-3">
+                      <span className="text-sm font-semibold text-foreground">Total:</span>
+                      <span className="font-bold text-primary text-lg">{formatPrice(product.price * quantity)}</span>
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-semibold text-foreground mb-3">
+                      Nama Lengkap: <span className="text-primary">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      value={customerName}
+                      onChange={(e) => setCustomerName(e.target.value)}
+                      placeholder="Masukkan nama lengkap Anda"
+                      className="w-full px-4 py-3 rounded-xl border-2 border-primary/20 bg-background/50 text-foreground placeholder:text-muted-foreground/50 focus:border-primary focus:outline-none transition-all"
                     />
-                  ))}
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-semibold text-foreground mb-3">
+                      Nomor WhatsApp: <span className="text-primary">*</span>
+                    </label>
+                    <input
+                      type="tel"
+                      value={customerPhone}
+                      onChange={(e) => setCustomerPhone(e.target.value)}
+                      placeholder="08xxxxxxxxxx"
+                      className="w-full px-4 py-3 rounded-xl border-2 border-primary/20 bg-background/50 text-foreground placeholder:text-muted-foreground/50 focus:border-primary focus:outline-none transition-all"
+                    />
+                  </div>
+                </div>
+
+                <div className="flex gap-3">
+                  <button
+                    onClick={() => setShowOrderForm(false)}
+                    className="flex-1 px-6 py-3 rounded-xl border-2 border-primary/20 bg-card/40 hover:border-primary/40 text-foreground font-semibold transition-all hover:scale-105 active:scale-95"
+                  >
+                    Kembali
+                  </button>
+                  <button
+                    onClick={handleWhatsAppOrder}
+                    className="flex-1 px-6 py-3 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-xl transition-all duration-300 shadow-lg shadow-green-600/30 hover:shadow-green-600/40 hover:scale-105 active:scale-95 flex items-center justify-center gap-2"
+                  >
+                    <MessageCircle size={20} />
+                    Kirim ke WhatsApp
+                  </button>
                 </div>
               </motion.div>
             )}
-
-            <motion.button
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
-              className="px-8 py-4 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold rounded-xl transition-all duration-300 shadow-lg shadow-primary/30 hover:shadow-primary/40 hover:scale-105 active:scale-95 flex items-center justify-center gap-3 text-lg mb-8"
-            >
-              <ShoppingCart size={22} />
-              Add to Cart
-            </motion.button>
           </div>
         </div>
 
@@ -303,7 +433,7 @@ export default function ProductDetail({ productId, onBack }: Props) {
           >
             <div className="flex items-center gap-3 mb-6">
               <Info size={24} className="text-primary" />
-              <h3 className="font-bold text-foreground text-xl">Product Details</h3>
+              <h3 className="font-bold text-foreground text-xl">Detail Produk</h3>
             </div>
             <ul className="space-y-4">
               {product.details.map((detail: string, index: number) => (
@@ -323,7 +453,7 @@ export default function ProductDetail({ productId, onBack }: Props) {
             transition={{ delay: 0.4 }}
             className="bg-card/40 backdrop-blur-sm border border-primary/20 rounded-2xl p-8"
           >
-            <h3 className="font-bold text-foreground text-lg mb-6">Specifications</h3>
+            <h3 className="font-bold text-foreground text-lg mb-6">Spesifikasi</h3>
             <div className="space-y-4">
               {Object.entries(product.specs).map(([key, value]) => (
                 <div key={key} className="flex flex-col">
@@ -350,9 +480,9 @@ export default function ProductDetail({ productId, onBack }: Props) {
               />
             ))}
           </div>
-          <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-4">Customer Reviews</h3>
+          <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-4">Ulasan Pelanggan</h3>
           <p className="text-muted-foreground leading-relaxed max-w-2xl mx-auto text-lg">
-            Product ini memiliki <span className="text-primary font-semibold">{product.reviews} customer reviews</span> dengan average rating <span className="text-primary font-semibold">{product.rating}/5 stars</span>. Thank you untuk interest Anda dalam Student Association merchandise!
+            Produk ini memiliki <span className="text-primary font-semibold">{product.reviews} ulasan pelanggan</span> dengan rating rata-rata <span className="text-primary font-semibold">{product.rating}/5 bintang</span>. Terima kasih atas kepercayaan Anda pada produk dan layanan Himpunan Mahasiswa!
           </p>
         </motion.div>
       </div>
