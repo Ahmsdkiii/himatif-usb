@@ -20,46 +20,40 @@ interface ArticleContent {
 export default function NewsDetail({ articleId, onBack }: Props) {
   const articles: Record<number, ArticleContent> = {
     1: {
-      title: 'HIMATIF USB Wins Campus Excellence Award',
+      title: 'Prospektif 2025: Menyambut Mahasiswa Baru dengan Orientasi Komprehensif',
       author: 'Ahmad Fauzi',
-      date: 'March 18, 2025',
-      readTime: '4 min',
-      category: 'Achievement',
-      content: `We are thrilled to announce that HIMATIF USB has been recognized with the prestigious Campus Excellence Award for outstanding leadership and community impact.
+      date: 'September 15, 2024',
+      readTime: '6 min',
+      category: 'Program',
+      content: `Program Prospektif 2025 telah sukses dilaksanakan dengan antusiasme tinggi dari mahasiswa baru angkatan 2025. Kegiatan ini dirancang khusus untuk membantu mahasiswa baru beradaptasi dengan lingkungan kampus dan sistem perkuliahan di Program Studi Teknik Informatika USB YPKP.
 
-This award acknowledges the dedication and hard work of our entire team, from our executive cabinet to our volunteer members. Over the past year, we've organized more than 50 events, engaged over 500 community service hours, and impacted the lives of thousands of students.
+Lebih dari 300 mahasiswa baru mengikuti seluruh rangkaian kegiatan yang berlangsung selama 3 hari penuh. Acara dibuka dengan sambutan dari Ketua Program Studi Teknik Informatika dan Ketua HIMATIF, dilanjutkan dengan sesi pengenalan lingkungan kampus, fasilitas laboratorium, dan berbagai unit kegiatan mahasiswa.
 
-The award recognizes our commitment to:
-- Creating inclusive and welcoming spaces for all tech students
-- Fostering leadership development and personal growth
-- Building meaningful connections within our developer community
-- Advocating for student voices and interests
-- Making a positive impact on both campus and the broader tech community
+Rangkaian acara meliputi campus tour yang dipandu oleh senior, workshop pengenalan sistem perkuliahan dan KRS online, serta introduction kepada organisasi HIMATIF beserta program-program yang dapat diikuti mahasiswa. Ice breaking dan team building activities menciptakan suasana kekeluargaan yang kuat sejak hari pertama.
 
-We couldn't have achieved this without the support and participation of our members, faculty advisors, and partners. This award is a testament to what we can accomplish when we work together toward a common goal.
+Hari kedua diisi dengan sesi motivasi dari alumni sukses yang telah berkarir di industri teknologi terkemuka seperti Gojek, Tokopedia, dan Telkom Indonesia. Para alumni berbagi pengalaman dan tips sukses berkuliah di Teknik Informatika serta mempersiapkan diri untuk dunia kerja.
 
-As we move forward, we remain committed to upholding these values and continuing to serve our tech community with excellence and integrity.`,
+Acara ditutup dengan malam keakraban yang menampilkan penampilan seni dari mahasiswa dan games interaktif. "Prospektif bukan hanya tentang orientasi, tapi tentang membangun fondasi kuat untuk perjalanan akademik mereka dan menciptakan bonding yang akan bertahan selama kuliah," ujar Ketua Panitia Prospektif 2025.
+
+Program ini juga menampilkan sesi mentoring dari senior berprestasi yang memberikan tips dan trik sukses berkuliah, manajemen waktu, dan cara menghadapi tantangan akademik. Setiap mahasiswa baru juga mendapatkan buddy mentor yang siap membantu mereka sepanjang semester pertama.`,
     },
     2: {
-      title: 'Tech Festival Breaks Attendance Records',
-      author: 'Siti Nurhaliza',
-      date: 'March 12, 2025',
-      readTime: '3 min',
-      category: 'Event',
-      content: `This year's Tech Festival exceeded all expectations, attracting over 2,000 students and breaking all previous attendance records.
+      title: 'Appreciation of The Month: Mengapresiasi Dedikasi Pengurus HIMATIF',
+      author: 'Dewi Lestari',
+      date: 'Oktober 28, 2024',
+      readTime: '5 min',
+      category: 'Program',
+      content: `Appreciation of The Month merupakan program rutin bulanan yang diinisiasi oleh bidang HRDO untuk memberikan penghargaan kepada pengurus HIMATIF yang menunjukkan dedikasi, kinerja, dan kontribusi luar biasa dalam menjalankan tugasnya.
 
-The event featured live coding competitions from five local tech communities, over 30 workshops, and interactive activities from tech organizations across campus. Despite challenging schedules, students showed up in force to celebrate innovation and technology.
+Sistem penilaian dilakukan secara objektif dan transparan dengan melibatkan evaluasi dari koordinator bidang, penilaian peer-to-peer, serta tracking pencapaian target program kerja. Setiap pengurus memiliki kesempatan yang sama untuk mendapatkan apresiasi ini.
 
-Highlights from this year's festival included:
-- Three stages with continuous tech talks and demonstrations
-- Workshop sessions covering latest technologies
-- 40+ student organization booths
-- Hackathon competitions and prizes
-- Networking sessions with industry professionals
+Bulan ini, apresiasi diberikan kepada Sarah Wulandari dari bidang Creative & Business yang berhasil meningkatkan engagement media sosial HIMATIF hingga 150% dalam sebulan terakhir. Sarah konsisten menghasilkan konten berkualitas tinggi, kreatif, dan relevan dengan target audience.
 
-The success of the Tech Festival is a direct result of the hard work and dedication of our entire team. Their meticulous planning, speaker coordination, and day-of execution made this a memorable experience for all attendees.
+Dalam sharing session yang diadakan, Sarah berbagi strategi content planning-nya, mulai dari riset tren, brainstorming ide kreatif, hingga eksekusi dan evaluasi performa konten. "Kunci sukses adalah konsistensi, kreativitas, dan selalu listening kepada feedback dari audience," ungkap Sarah.
 
-Thank you to everyone who attended, volunteered, and contributed to making this event possible. We're already looking forward to next year!`,
+Sebagai bentuk apresiasi, Sarah menerima sertifikat penghargaan, voucher belanja, dan kesempatan untuk featured dalam konten Instagram HIMATIF. Foto dan profilnya juga dipajang di wall of fame kantor HIMATIF sebagai inspirasi bagi pengurus lainnya.
+
+Program Appreciation of The Month terbukti efektif meningkatkan motivasi dan produktivitas pengurus. Banyak pengurus yang termotivasi untuk memberikan yang terbaik dan berlomba-lomba menciptakan inovasi dalam program kerja mereka.`,
     },
   }
 
@@ -67,11 +61,9 @@ Thank you to everyone who attended, volunteered, and contributed to making this 
 
   const getCategoryColor = (category: string) => {
     const colors: Record<string, { bg: string; text: string; border: string }> = {
-      Achievement: { bg: 'bg-blue-500/10', text: 'text-blue-400', border: 'border-blue-500/20' },
-      Event: { bg: 'bg-primary/10', text: 'text-primary', border: 'border-primary/20' },
-      Initiative: { bg: 'bg-purple-500/10', text: 'text-purple-400', border: 'border-purple-500/20' },
-      Learning: { bg: 'bg-yellow-500/10', text: 'text-yellow-400', border: 'border-yellow-500/20' },
-      Scholarship: { bg: 'bg-pink-500/10', text: 'text-pink-400', border: 'border-pink-500/20' },
+      Program: { bg: 'bg-blue-500/10', text: 'text-blue-400', border: 'border-blue-500/20' },
+      Kegiatan: { bg: 'bg-green-500/10', text: 'text-green-400', border: 'border-green-500/20' },
+      Workshop: { bg: 'bg-yellow-500/10', text: 'text-yellow-400', border: 'border-yellow-500/20' },
     }
     return colors[category] || { bg: 'bg-primary/10', text: 'text-primary', border: 'border-primary/20' }
   }
@@ -93,7 +85,7 @@ Thank you to everyone who attended, volunteered, and contributed to making this 
           className="flex items-center gap-2 text-primary hover:text-primary/80 transition-colors mb-12 group"
         >
           <ArrowLeft size={20} className="group-hover:-translate-x-1 transition-transform duration-300" />
-          <span className="font-medium">Back to News</span>
+          <span className="font-medium">Kembali ke Berita</span>
         </motion.button>
 
         <motion.div
@@ -150,7 +142,7 @@ Thank you to everyone who attended, volunteered, and contributed to making this 
                 )
               }
               return (
-                <p key={index} className="text-foreground leading-relaxed">
+                <p key={index} className="text-foreground leading-relaxed text-justify">
                   {paragraph}
                 </p>
               )
@@ -166,10 +158,10 @@ Thank you to everyone who attended, volunteered, and contributed to making this 
           transition={{ delay: 0.3 }}
           className="bg-card/40 backdrop-blur-sm border border-primary/20 rounded-2xl p-8 md:p-12 text-center"
         >
-          <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-3">Stay Updated</h3>
-          <p className="text-muted-foreground mb-8 max-w-2xl mx-auto text-lg">Subscribe to our newsletter untuk latest news dan updates dari HIMATIF USB.</p>
+          <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-3">Tetap Terhubung</h3>
+          <p className="text-muted-foreground mb-8 max-w-2xl mx-auto text-lg">Subscribe newsletter untuk mendapatkan update terbaru dari HIMATIF USB YPKP.</p>
           <button className="px-8 py-3 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold rounded-xl transition-all duration-300 shadow-lg shadow-primary/30 hover:shadow-primary/40 hover:scale-105 active:scale-95">
-            Subscribe to Newsletter
+            Subscribe Newsletter
           </button>
         </motion.div>
       </div>
