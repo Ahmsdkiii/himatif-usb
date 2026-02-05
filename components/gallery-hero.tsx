@@ -25,7 +25,7 @@ export default function GalleryHero() {
           className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/20 rounded-full text-primary text-sm font-medium backdrop-blur-sm mb-6"
         >
           <Images className="w-4 h-4" />
-          <span>Photo & Video Gallery</span>
+          <span>Galeri Foto & Video</span>
         </motion.div>
 
         <motion.h1
@@ -34,7 +34,7 @@ export default function GalleryHero() {
           transition={{ delay: 0.3 }}
           className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-tight"
         >
-          Our <span className="text-transparent bg-clip-text bg-linear-to-r from-primary via-accent to-primary">Gallery</span>
+          Galeri <span className="text-transparent bg-clip-text bg-linear-to-r from-primary via-accent to-primary">Kami</span>
         </motion.h1>
 
         <motion.p
@@ -43,7 +43,7 @@ export default function GalleryHero() {
           transition={{ delay: 0.4 }}
           className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed"
         >
-          Explore photos dan videos dari our events, programs, dan community activities.
+          Jelajahi foto dan video dari berbagai kegiatan, program, serta aktivitas komunitas HIMATIF USB YPKP.
         </motion.p>
       </motion.div>
     </section>
