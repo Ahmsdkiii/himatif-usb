@@ -154,7 +154,7 @@ export default function ProductDetail({ productId, onBack }: Props) {
     }
 
     const totalPrice = product.price * quantity
-    const whatsappNumber = '6281462251984'
+    const whatsappNumber = '6283100799615'
     
     const message = `*HIMATIF - Pesanan Baru*
 

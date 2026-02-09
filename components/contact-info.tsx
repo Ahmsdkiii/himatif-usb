@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { Mail, Phone, MapPin, Clock } from 'lucide-react'
-import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn } from 'react-icons/fa'
+import { FaYoutube, FaTiktok, FaInstagram } from 'react-icons/fa'
 
 export default function ContactInfo() {
   const contactDetails = [
@@ -15,8 +15,8 @@ export default function ContactInfo() {
     {
       icon: Phone,
       title: 'Telepon',
-      content: '+62 22 020 950',
-      link: 'tel:+6222022950',
+      content: '+62 812-2339-7272',
+      link: 'tel:+6281223397272',
     },
     {
       icon: MapPin,
@@ -34,27 +34,22 @@ export default function ContactInfo() {
 
   const socialMedia = [
     {
-      name: 'Facebook',
-      icon: FaFacebookF,
-      href: '#',
-    },
-    {
-      name: 'Twitter',
-      icon: FaTwitter,
-      href: '#',
-    },
-    {
       name: 'Instagram',
       icon: FaInstagram,
-      href: '#',
+      href: 'https://www.instagram.com/himatifypkp_/',
     },
     {
-      name: 'LinkedIn',
-      icon: FaLinkedinIn,
-      href: '#',
+      name: 'TikTok',
+      icon: FaTiktok,
+      href: 'https://www.tiktok.com/@himatifusbypkp?_r=1&_t=ZS-93ldxDZ6kRm',
+    },
+    {
+      name: 'YouTube',
+      icon: FaYoutube,
+      href: 'https://youtube.com/@himpunanmahasiswateknikinf-usb?si=DUlHN7ArllM3bgM9',
     },
   ]
-
+    
   const containerVariants = {
     hidden: {},
     visible: {

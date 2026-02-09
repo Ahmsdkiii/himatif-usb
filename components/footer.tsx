@@ -44,9 +44,8 @@ export default function Footer() {
   ]
 
   return (
-    <footer className="relative bg-background border-t border-primary/20 mt-16 sm:mt-20 lg:mt-24">
+    <footer className="relative bg-background border-t border-primary/20">
       <div className="absolute inset-0 bg-linear-to-b from-primary/5 to-transparent pointer-events-none"></div>
-
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12 lg:py-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-12 mb-10 sm:mb-12">
           <div className="sm:col-span-2 lg:col-span-4">
