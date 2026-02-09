@@ -5,11 +5,9 @@ import { Lightbulb, Flag } from 'lucide-react'
 
 export default function VisionMissionSection() {
   const missions = [
-    'Menyelenggarakan kegiatan dan program teknologi yang inklusif untuk seluruh mahasiswa',
-    'Membentuk calon pemimpin mahasiswa melalui pelatihan dan pendampingan',
-    'Menjadi wadah aspirasi serta memperjuangkan kepentingan dan kesejahteraan mahasiswa',
-    'Membangun rasa kebersamaan dan solidaritas di lingkungan mahasiswa Teknik Informatika',
-    'Mendukung pengembangan akademik dan penguatan keterampilan di bidang teknologi',
+    'Menampung segala bentuk aspirasi dari mahasiswa Teknik Informatika Sangga Buana YPKP Bandung.',
+    'Menumbuh kembangkan rasa solidaritas dan membentuk karakter anggota HIMATIF yang professional.',
+    'Berperan aktif dalam kegiatan organisasi eksternal di bidang Teknologi Informasi.',
   ]
 
   return (
@@ -21,7 +19,7 @@ export default function VisionMissionSection() {
 
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* VISION */}
+          {/* VISION - Berdasarkan Pasal 8 */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -34,30 +32,19 @@ export default function VisionMissionSection() {
               <span>Visi</span>
             </div>
 
-            <h3 className="text-3xl md:text-4xl font-bold text-foreground">
-              Membangun Generasi Pemimpin Teknologi Masa Depan
+            <h3 className="text-3xl md:text-4xl font-bold text-foreground leading-tight">
+              Mewujudkan Wadah Aspirasi dan Inovasi Teknologi
             </h3>
 
             <div className="space-y-4">
-              <p className="text-muted-foreground leading-relaxed text-justify">
-                Kami membayangkan lingkungan kampus yang aktif dan suportif,
-                di mana setiap mahasiswa memiliki kesempatan untuk berkembang,
-                berkontribusi, dan memberi dampak nyata. Kami percaya pada
-                kekuatan kolaborasi dan sikap inklusif, sehingga setiap ide dan
-                suara mahasiswa dapat dihargai serta didengar.
-              </p>
-
-              <p className="text-muted-foreground leading-relaxed text-justify">
-                Visi kami tidak hanya terbatas di lingkungan kampus, tetapi juga
-                mendorong terciptanya rasa tanggung jawab dan kepedulian sosial.
-                Kami ingin menginspirasi anggota HIMATIF untuk menjadi pribadi
-                yang aktif, bermanfaat, dan mampu menjadi agen perubahan di
-                masyarakat.
+              <p className="text-muted-foreground text-lg leading-relaxed text-justify">
+                Menjadi wadah aspirasi mahasiswa Teknik Informatika Sangga Buana YPKP Bandung 
+                dan menciptakan sumber daya manusia yang berkompetensi dalam bidang teknologi informasi.
               </p>
             </div>
           </motion.div>
 
-          {/* MISSION */}
+          {/* MISSION - Berdasarkan Pasal 9 */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -71,16 +58,10 @@ export default function VisionMissionSection() {
             </div>
 
             <h3 className="text-3xl md:text-4xl font-bold text-foreground">
-              Menyatukan, Menginspirasi, dan Memberdayakan
+              Membangun Karakter, Solidaritas, dan Aksi
             </h3>
 
-            <p className="text-muted-foreground leading-relaxed text-justify">
-              Misi kami adalah menyatukan mahasiswa melalui program, kegiatan,
-              dan inisiatif yang bermakna, guna mendorong pengembangan diri,
-              prestasi akademik, serta tanggung jawab sosial di bidang teknologi.
-            </p>
-
-            <div className="space-y-3 pt-2">
+            <div className="space-y-4 pt-2">
               {missions.map((mission, index) => (
                 <motion.div
                   key={index}
@@ -88,13 +69,13 @@ export default function VisionMissionSection() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className="flex gap-3 items-start group"
+                  className="flex gap-4 items-start group"
                 >
-                  <div className="flex items-center justify-center w-6 h-6 rounded-full bg-primary/10 border border-primary/20 shrink-0 mt-0.5 group-hover:bg-primary/20 group-hover:border-primary/40 transition-all duration-300">
-                    <span className="text-primary font-bold text-sm">✓</span>
+                  <div className="flex items-center justify-center w-8 h-8 rounded-full bg-primary/10 border border-primary/20 shrink-0 mt-0.5 group-hover:bg-primary/20 group-hover:border-primary/40 transition-all duration-300">
+                    <span className="text-primary font-bold text-sm">{index + 1}</span>
                   </div>
 
-                  <span className="text-muted-foreground leading-relaxed text-justify">
+                  <span className="text-muted-foreground text-lg leading-relaxed">
                     {mission}
                   </span>
                 </motion.div>
