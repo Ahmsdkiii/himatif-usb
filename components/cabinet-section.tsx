@@ -9,14 +9,14 @@ export default function CabinetHero() {
     {
       id: 1,
       name: 'Kabinet Cyberpunk',
-      logo: '/assets/img/sol.png',
+      logo: '/assets/img/Himatif-White.png',
       periode: 'Periode 2023/2024',
       slug: 'cyberpunk',
     },
     {
       id: 2,
       name: 'Kabinet No Man’s Sky',
-      logo: '/assets/img/sol.png',
+      logo: '/assets/img/LOGO-NMS.png',
       periode: 'Periode 2024/2025',
       slug: 'no-mans-sky',
     },

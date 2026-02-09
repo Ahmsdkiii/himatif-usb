@@ -2,17 +2,8 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
-import {
-  Mail,
-  Phone,
-  MapPin,
-  Linkedin,
-  Instagram,
-  Facebook,
-  Github,
-  ChevronRight,
-  ExternalLink,
-} from 'lucide-react'
+import { Mail, Phone, MapPin, ChevronRight, ExternalLink } from 'lucide-react'
+import { FaInstagram, FaTiktok, FaYoutube } from 'react-icons/fa'
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
@@ -32,10 +23,24 @@ export default function Footer() {
   ]
 
   const socialLinks = [
-    { href: '#', icon: Instagram, label: 'Instagram', color: 'hover:text-pink-400' },
-    { href: '#', icon: Linkedin, label: 'LinkedIn', color: 'hover:text-blue-400' },
-    { href: '#', icon: Github, label: 'GitHub', color: 'hover:text-foreground' },
-    { href: '#', icon: Facebook, label: 'Facebook', color: 'hover:text-blue-500' },
+    {
+      href: 'https://www.instagram.com/himatifypkp_/',
+      icon: FaInstagram,
+      label: 'Instagram',
+      color: 'hover:text-primary',
+    },
+    {
+      href: 'https://www.tiktok.com/@himatifusbypkp?_r=1&_t=ZS-93ldxDZ6kRm',
+      icon: FaTiktok,
+      label: 'TikTok',
+      color: 'hover:text-primary',
+    },
+    {
+      href: 'https://youtube.com/@himpunanmahasiswateknikinf-usb?si=DUlHN7ArllM3bgM9',
+      icon: FaYoutube,
+      label: 'YouTube',
+      color: 'hover:text-primary',
+    },
   ]
 
   return (
@@ -44,7 +49,6 @@ export default function Footer() {
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12 lg:py-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-12 mb-10 sm:mb-12">
-          {/* Brand */}
           <div className="sm:col-span-2 lg:col-span-4">
             <Link href="/" className="inline-block group mb-4 sm:mb-5">
               <div className="flex items-center gap-3">
@@ -80,7 +84,6 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Quick Links */}
           <div className="lg:col-span-2">
             <h4 className="font-semibold text-foreground text-base sm:text-lg mb-4 sm:mb-5 flex items-center gap-2">
               Tautan Cepat
@@ -102,7 +105,6 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Resources */}
           <div className="lg:col-span-2">
             <h4 className="font-semibold text-foreground text-base sm:text-lg mb-4 sm:mb-5 flex items-center gap-2">
               Informasi
@@ -124,7 +126,6 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Contact */}
           <div className="sm:col-span-2 lg:col-span-4">
             <h4 className="font-semibold text-foreground text-base sm:text-lg mb-4 sm:mb-5 flex items-center gap-2">
               Hubungi Kami
@@ -149,7 +150,7 @@ export default function Footer() {
                 <div className="p-2 sm:p-2.5 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors duration-200">
                   <Phone className="w-4 h-4 sm:w-5 sm:h-5" />
                 </div>
-                <span>+62 22 020 950</span>
+                <span>+62 812-2339-7272</span>
               </a>
 
               <div className="pt-2">
@@ -175,7 +176,6 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom */}
         <div className="relative">
           <div className="absolute inset-0 bg-linear-to-r from-transparent via-primary/20 to-transparent h-px"></div>
 

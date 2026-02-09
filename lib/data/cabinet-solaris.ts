@@ -247,7 +247,7 @@ export const cabinetSolarisMembers: Record<string, CabinetSolaris[]> = {
     },
     {
       id: 24,
-      name: 'Diana Nureyntia Agustin',
+      name: 'Diana Nurcyntia Agustin',
       position: 'Staff Research and Education',
       department: 'Research & Education',
       npm: '2113241079',
@@ -511,7 +511,7 @@ export const cabinetSolarisMembers: Record<string, CabinetSolaris[]> = {
     },
     {
       id: 50,
-      name: 'Mochanmad Ramadhan N.H',
+      name: 'Mochammad Ramadhan N.H',
       position: 'Staff Creative and Business',
       department: 'Creative & Business',
       npm: '2113241095',

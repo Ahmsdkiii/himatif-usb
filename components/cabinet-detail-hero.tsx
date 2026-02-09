@@ -53,7 +53,7 @@ export default function CabinetDetailHero({ slug }: { slug: string }) {
               <div className="relative z-10 w-full h-full flex items-center justify-center p-10 sm:p-12">
                 <div className="relative w-72 h-72 sm:w-96 sm:h-96">
                   <Image
-                    src="/assets/img/sol.png"
+                    src={cabinet.logo}
                     alt={cabinet.name}
                     fill
                     className="object-contain drop-shadow-[0_22px_40px_rgba(0,0,0,0.4)] dark:drop-shadow-[0_22px_40px_rgba(0,0,0,0.65)]"
