@@ -16,10 +16,10 @@ export default function Footer() {
   ]
 
   const resources = [
+    { href: '/products', label: 'Produk Himatif' },
     { href: '/programs', label: 'Program Kerja' },
     { href: '/news', label: 'Berita & Kegiatan' },
     { href: '/gallery', label: 'Galeri Dokumentasi' },
-    { href: '/workshops', label: 'Workshop & Pelatihan' },
   ]
 
   const socialLinks = [
